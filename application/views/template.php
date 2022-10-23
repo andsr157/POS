@@ -77,7 +77,7 @@
                     <p class="font-weight-light text-muted mb-0"></p>
                   </div>
                   <a href="{{ url('/profile') }}" class="dropdown-item">Profil</a>
-                  <a href="{{ url('/logout') }}" class="dropdown-item">Sign Out</a>
+                  <a href="<?=base_url('auth/logout')?>" class="dropdown-item">Sign Out</a>
                 </div>
               </li>
             </ul>
