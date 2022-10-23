@@ -26,7 +26,7 @@
           <div class="row w-100">
             <div class="col-lg-4 mx-auto">
               <div class="auto-form-wrapper">
-                <form action="{{ url('/verify_login') }}" method="post" name="login_form">
+                <form action="<?= base_url('auth/process')?>" method="POST" >
                   <div class="form-group">
                     <label class="label">Username</label>
                     <div class="input-group">
@@ -46,48 +46,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <button class="btn btn-primary submit-btn btn-block">Masuk</button>
-                  </div>
-                </form>
-                <form action="{{ url('/first_account') }}" method="post" name="create_form">
-                  <div class="form-group">
-                    <label class="label">Nama</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" name="nama" placeholder="Nama">
-                      <div class="input-group-append">
-                        <span class="input-group-text check-value" id="nama_error"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="label">Email</label>
-                    <div class="input-group">
-                      <input type="email" class="form-control" name="email" placeholder="Email">
-                      <div class="input-group-append">
-                        <span class="input-group-text check-value" id="email_error"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="label">Username</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" name="username_2" placeholder="Username">
-                      <div class="input-group-append">
-                        <span class="input-group-text check-value" id="username_2_error"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="label">Password</label>
-                    <div class="input-group">
-                      <input type="password" class="form-control" name="password_2" placeholder="*********">
-                      <div class="input-group-append">
-                        <span class="input-group-text check-value" id="password_2_error"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <button class="btn btn-primary submit-btn btn-block">Buat Akun</button>
+                    <button class="btn btn-primary submit-btn btn-block" name="login">Masuk</button>
                   </div>
                 </form>
               </div>
