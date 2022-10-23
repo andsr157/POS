@@ -110,6 +110,7 @@
                   <span class="menu-title">Dashboard</span>
                 </a>
               </li>
+              <?php if($this->session->userdata('level') == 1) { ?>
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#kelola_akun" aria-expanded="false" aria-controls="kelola_akun">
                   <span class="menu-title">Kelola Akun</span>
@@ -126,6 +127,7 @@
                   </ul>
                 </div>
               </li>
+              <?php } ?>
               <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#kelola_barang" aria-expanded="false" aria-controls="kelola_barang">
                 <span class="menu-title">Kelola Barang</span>
@@ -141,11 +143,6 @@
                   </li>
                 </ul>
               </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/product') }}">
-                <span class="menu-title">Kelola Barang</span>
-              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/transaction') }}">
