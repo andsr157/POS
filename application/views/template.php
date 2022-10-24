@@ -73,8 +73,8 @@
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                   <div class="dropdown-header text-center">
                     <img class="img-md rounded-circle" src="pictures/' . auth()->user()->foto) }}" alt="Profile image">
-                    <p class="mb-1 mt-3 font-weight-semibold"></p>
-                    <p class="font-weight-light text-muted mb-0"></p>
+                    <p class="mb-1 mt-3 font-weight-semibold"><?= $this->lvalidasi->user_login()->nama?></p>
+                    <p class="font-weight-light text-muted mb-0"><?= $this->lvalidasi->user_login()->username?></p>
                   </div>
                   <a href="{{ url('/profile') }}" class="dropdown-item">Profil</a>
                   <a href="<?=base_url('auth/logout')?>" class="dropdown-item">Sign Out</a>
@@ -99,8 +99,8 @@
                     <div class="dot-indicator bg-success"></div>
                   </div>
                   <div class="text-wrapper">
-                    <p class="profile-name"></p>
-                    <p class="designation"></p>
+                    <p class="profile-name"><?= $this->lvalidasi->user_login()->nama?></p>
+                    <p class="designation"><?= $this->lvalidasi->user_login()->username?></p>
                   </div>
                 </a>
               </li>
