@@ -25,9 +25,9 @@
         <!-- TopNav -->
         <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
           <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-            <a class="navbar-brand brand-logo" href="{{ url('/dashboard') }}">
+            <a class="navbar-brand brand-logo" href="<?=base_url('dashboard')?>">
               <img src="icons/logo.png" alt="logo" /> </a>
-            <a class="navbar-brand brand-logo-mini" href="{{ url('/dashboard') }}">
+            <a class="navbar-brand brand-logo-mini" href="<?=base_url('dashboard')?>">
               <img src="icons/logo-mini.png" alt="logo" /> </a>
           </div>
           <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -106,7 +106,7 @@
               </li>
               <li class="nav-item nav-category">Daftar Menu</li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('/dashboard') }}">
+                <a class="nav-link" href="<?=base_url('dashboard')?>">
                   <span class="menu-title">Dashboard</span>
                 </a>
               </li>
@@ -119,7 +119,7 @@
                 <div class="collapse" id="kelola_akun">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/account') }}">Daftar Akun</a>
+                      <a class="nav-link" href="<?=base_url('users')?>">Daftar Akun</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="{{ url('/access') }}">Hak Akses</a>
