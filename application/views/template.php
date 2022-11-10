@@ -244,6 +244,14 @@
     <script src="<?php echo base_url() ?>assets/plugins/js/jquery-ui.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/templates/script.js"></script>
     <script type="text/javascript">
+      swal(
+          "Berhasil!",
+          "Akun baru berhasil dibuat",
+          "success"
+      );
+
+
+
       $(document).on('input', 'input[name=search_page]', function(){
         if($(this).val() != ''){
           $('#content-web-page').prop('hidden', true);
@@ -275,72 +283,7 @@
         }
       });
     </script>
-    <script src="http://localhost/ipos/public/js/manage_account/account/script.js"></script>
-  <script type="text/javascript">
-        swal(
-          "Berhasil!",
-          "Akun baru berhasil dibuat",
-          "success"
-      );
-    
-    
-    
-    
-    
-    
-    $(document).on('click', '.filter-btn', function(e){
-      e.preventDefault();
-      var data_filter = $(this).attr('data-filter');
-      $.ajax({
-        method: "GET",
-        url: "http://localhost/ipos/public/account/filter/" + data_filter,
-        success:function(data)
-        {
-          $('tbody').html(data);
-        }
-      });
-    });
-
-    $(document).on('click', '.btn-edit', function(){
-      var data_edit = $(this).attr('data-edit');
-      $.ajax({
-        method: "GET",
-        url: "http://localhost/ipos/public/account/edit/" + data_edit,
-        success:function(response)
-        {
-          $('.img-edit').attr("src", "http://localhost/ipos/public/pictures/" + response.user.foto);
-          $('input[name=id]').val(response.user.id);
-          $('input[name=nama]').val(response.user.nama);
-          $('input[name=email]').val(response.user.email);
-          $('input[name=username]').val(response.user.username);
-          $('select[name=role] option[value="'+ response.user.role +'"]').prop('selected', true);
-          validator.resetForm();
-        }
-      });
-    });
-
-    $(document).on('click', '.btn-delete', function(e){
-      e.preventDefault();
-      var data_delete = $(this).attr('data-delete');
-      swal({
-        title: "Apa Anda Yakin?",
-        text: "Data akun akan terhapus, klik oke untuk melanjutkan",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-          window.open("http://localhost/ipos/public/account/delete/" + data_delete, "_self");
-        }
-      });
-    });
-
-    $(document).on('click', '.btn-delete-img', function(){
-      $(".img-edit").attr("src", "http://localhost/ipos/public/pictures/default.jpg");
-      $('input[name=nama_foto]').val('default.jpg');
-    });
-  </script>
+  
     <!-- End-Javascript -->
   </body>
 </html>

@@ -1,14 +1,21 @@
-<?php defined('BASEPATH') or exit ('no direct script access allowed');
+<?php
+
+use phpDocumentor\Reflection\PseudoTypes\True_;
+
+ defined('BASEPATH') or exit ('no direct script access allowed');
     
 class Users extends CI_Controller{
 
+    function __construct()
+    {
+        parent::__construct();
+        check_not_login();
+        $this->load->model('user_m');
+    }
+
     public function index()
     {
-        check_not_login();
-
-        $this->load->model('user_m');
         $data['row'] = $this->user_m->get();
-
         $this->template->load('template','users/users_data', $data);
     }
 
@@ -36,7 +43,23 @@ class Users extends CI_Controller{
         if ($this->form_validation->run() == FALSE){
             $this->template->load('template', 'users/user_form_add');
         }else{
-            echo"SUCCESS";
+            $post = $this->input->post(null, TRUE);
+            $this->user_m->add($post);
+            if($this->db->affected_rows() > 0){
+                echo"<script>alert('data berhasil disimpan')</script>";
+            }
+            echo"<script>window.location='".base_url('users')."'</script>";
         }
+    }
+
+    public function del()
+    {
+        $id_name = $this->input->post('user_id');
+        $this->user_m->del($id_name);
+
+        if($this->db->affected_rows() > 0){
+            echo"<script>alert('data berhasil dihapus')</script>";
+        }
+        echo"<script>window.location='".base_url('users')."'</script>";
     }
 }   

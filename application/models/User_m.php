@@ -21,4 +21,23 @@ class User_m extends CI_Model
         $query= $this->db->get();
         return $query;
     }
+
+
+    public function add($post)
+    {   
+        $params['nama'] = $post['nama'];
+        $params['username'] = $post['username'];
+        $params['password'] = sha1($post['password']);
+        $params['email'] = $post['email'];
+        $params['level'] = $post['level'];
+
+        $this->db->insert('users', $params);
+
+    }
+
+    public function del($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('users');
+    }
 }
