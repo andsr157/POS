@@ -40,4 +40,20 @@ class User_m extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete('users');
     }
+
+
+    public function edit($post)
+    {   
+        $params['nama'] = $post['nama'];
+        $params['username'] = $post['username'];
+        if(!empty($post['password'])){
+            $params['password'] = sha1($post['password']);
+        }
+        $params['email'] = $post['email'];
+        $params['level'] = $post['level'];
+
+        $this->db->where('id', $post['user_id']);
+        $this->db->update('users', $params);
+
+    }
 }

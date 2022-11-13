@@ -19,6 +19,7 @@
                 <thead>
                     <tr>
                     <th>Nama</th>
+                    <th>Username</th>
                     <th>Email</th>
                     <th>Level</th>
                     <th></th>
@@ -32,13 +33,14 @@
                             <img src="http://localhost/ipos/public/pictures/default.jpg">
                             <span class="ml-2"><?= $data->nama?></span>
                         </td>
+                        <td><?=$data->username?></td>
                         <td><?= $data->email?></td>
                         <td>
                             <span class=""><?= $data->level == 1 ? "admin" : "Kasir"?></span>
                         </td>
                         <form action="<?=base_url('users/del')?>" method="POST">
                         <td>
-                          <a href="<?=base_url('users/'.$data->id)?>">
+                          <a href="<?=base_url('users/edit/'.$data->id)?>">
                            <button type="button" class="btn btn-edit btn-icons btn-rounded btn-secondary" data-toggle="modal" data-edit="1">
                                 <i class="mdi mdi-pencil"></i>
                             </button>
