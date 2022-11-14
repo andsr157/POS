@@ -15,3 +15,12 @@ function check_not_login(){
         redirect('auth/login');
     }
 }
+
+
+function check_admin(){
+    $ci =& get_instance();
+    $ci->load->library('lvalidasi');
+    if($ci->lvalidasi->user_login()->level != 1){
+        redirect('dashboard');
+    }
+};

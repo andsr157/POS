@@ -110,7 +110,7 @@
                   <span class="menu-title">Dashboard</span>
                 </a>
               </li>
-              <?php if($this->session->userdata('level') == 1) { ?>
+              <?php if($this->lvalidasi->user_login()->level == 1) { ?>
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#kelola_akun" aria-expanded="false" aria-controls="kelola_akun">
                   <span class="menu-title">Kelola Akun</span>
