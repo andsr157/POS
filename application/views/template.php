@@ -94,10 +94,6 @@
             <ul class="nav">
               <li class="nav-item nav-profile">
                 <a href="{{ url('/profile') }}" class="nav-link">
-                  <div class="profile-image">
-                    <img class="img-xs rounded-circle" src="pictures/' . auth()->user()->foto) }}" alt="profile image">
-                    <div class="dot-indicator bg-success"></div>
-                  </div>
                   <div class="text-wrapper">
                     <p class="profile-name"><?= $this->lvalidasi->user_login()->nama?></p>
                     <p class="designation"><?= $this->lvalidasi->user_login()->username?></p>
@@ -108,6 +104,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('dashboard')?>">
                   <span class="menu-title">Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?=base_url('supplier')?>">
+                  <span class="menu-title">Suppliers</span>
                 </a>
               </li>
               <?php if($this->lvalidasi->user_login()->level == 1) { ?>
