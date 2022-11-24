@@ -14,7 +14,7 @@
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendors/css/vendor.bundle.addons.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/shared/style.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/demo_1/style.css">
-      <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/main/style.css">
+      <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/user/style.css">
       <link rel="shortcut icon" href="icons/favicon.png"/>
       <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
       <!-- End-CSS -->
@@ -26,14 +26,14 @@
         <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
           <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
             <a class="navbar-brand brand-logo" href="<?=base_url('dashboard')?>">
-              <img src="icons/logo.png" alt="logo" /> </a>
+              <img src="<?= base_url() ?>assets/images/logo/logo.png" alt="logo" /> </a>
             <a class="navbar-brand brand-logo-mini" href="<?=base_url('dashboard')?>">
-              <img src="icons/logo-mini.png" alt="logo" /> </a>
+              <img src="<?= base_url() ?>assets/images/logo/logo-mini.png" alt="logo" /> </a>
           </div>
           <div class="navbar-menu-wrapper d-flex align-items-center">
             <form class="search-form d-none d-md-block" action="#">
               <div class="form-group">
-                <input type="search" class="form-control" name="search_page" placeholder="Cari Halaman">
+                <input type="search" class="form-control" name="search_page" placeholder="Cari Halaman">  
               </div>
             </form>
             <ul class="navbar-nav ml-auto">
@@ -226,8 +226,8 @@
           </div>
           <footer class="footer" id="footer-content">
             <div class="container-fluid clearfix">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019 <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i>
+              <!-- <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019 <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i> -->
               </span>
             </div>
           </footer>
@@ -253,36 +253,7 @@
 
 
 
-      $(document).on('input', 'input[name=search_page]', function(){
-        if($(this).val() != ''){
-          $('#content-web-page').prop('hidden', true);
-          $('#content-web-search').prop('hidden', false);
-          var search_word = $(this).val();
-          $.ajax({
-            url: "{{ url('/search') }}/" + search_word,
-            method: "GET",
-            success:function(response){
-              $('.result-1').html(response.length + ' Hasil Pencarian');
-              $('.result-2').html('dari "' + search_word + '"');
-              var lengthLoop = response.length - 1;
-              var searchResultList = '';
-              for(var i = 0; i <= lengthLoop; i++){
-                var page_url = "{{ url('/', ':id') }}";
-                page_url = page_url.replace('%3Aid', response[i].page_url);
-                searchResultList += '<a href="'+ page_url +'" class="page-result-child mb-4 w-100"><div class="col-12"><div class="card card-noborder b-radius"><div class="card-body"><div class="row"><div class="col-12"><h5 class="d-block page_url">'+ response[i].page_name +'</h5><p class="align-items-center d-flex justify-content-start"><span class="icon-in-search mr-2"><i class="mdi mdi-chevron-double-right"></i></span> <span class="breadcrumbs-search page_url">'+ response[i].page_title +'</span></p><div class="search-description"><p class="m-0 p-0 page_url">'+ response[i].page_content.substring(0, 500) +'...</p></div></div></div></div></div></div></a>';
-              }
-              $('#page-result-parent').html(searchResultList);
-              $('.page_url:contains("'+search_word+'")').each(function(){
-                  var regex = new RegExp(search_word, 'gi');
-                  $(this).html($(this).text().replace(regex, '<span style="background-color: #607df3;">'+search_word+'</span>'));
-              });
-            }
-          });
-        }else{
-          $('#content-web-page').prop('hidden', false);
-          $('#content-web-search').prop('hidden', true);
-        }
-      });
+      
     </script>
   
     <!-- End-Javascript -->

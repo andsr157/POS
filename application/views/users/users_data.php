@@ -36,7 +36,7 @@
                         <td><?=$data->username?></td>
                         <td><?= $data->email?></td>
                         <td>
-                            <span class=""><?= $data->level == 1 ? "admin" : "Kasir"?></span>
+                            <span class="btn <?=$data->level == 1 ? 'admin-span' : 'kasir-span'?>"><?= $data->level == 1 ? "admin" : "Kasir"?></span>
                         </td>
                         <form action="<?=base_url('users/del')?>" method="POST">
                         <td>

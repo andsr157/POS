@@ -63,7 +63,7 @@
 				  	<div class="col-12 d-flex justify-content-end ">
 				  		<button style="background-color:#1c45ef; color:white" class="btn simpan-btn btn-sm" type="submit"><i class="mdi mdi-content-save" ></i> Simpan</button>
 				  	</div>
-				  </div>
+				  </div>	
 				</form>
 			</div>
 		</div>

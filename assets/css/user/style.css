@@ -1,0 +1,19 @@
+.admin-span{
+	color: #ff6258;
+	font-weight: bold;
+	background-color: rgba(255, 98, 88, 0.2);
+}
+
+.admin-span:hover{
+	color: #ff6258;
+}
+
+.kasir-span{
+	color: #ffaf00;
+	font-weight: bold;
+	background-color: rgba(255, 175, 0, 0.2);
+}
+
+.kasir-span:hover{
+	color: #ffaf00;
+}
