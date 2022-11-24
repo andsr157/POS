@@ -111,6 +111,11 @@
                   <span class="menu-title">Suppliers</span>
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?=base_url('customer')?>">
+                  <span class="menu-title">Customers</span>
+                </a>
+              </li>
               <?php if($this->lvalidasi->user_login()->level == 1) { ?>
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#kelola_akun" aria-expanded="false" aria-controls="kelola_akun">
