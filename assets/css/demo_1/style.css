@@ -258,7 +258,7 @@
 
 /* Navbar */
 .navbar.default-layout {
-  font-family: "roboto", sans-serif;
+  font-family: "rubik", sans-serif;
   background: #fff;
   transition: background 0.25s ease;
   -webkit-transition: background 0.25s ease;
@@ -405,7 +405,7 @@
   min-height: calc(100vh - 63px);
   background: -webkit-gradient(linear, left bottom, left top, from(#5768f3), to(#1c45ef));
   background: linear-gradient(to top, #5768f3, #1c45ef);
-  font-family: "roboto", sans-serif;
+  font-family: "rubik", sans-serif;
   padding: 0;
   width: 270px;
   z-index: 11;
@@ -612,7 +612,7 @@
   -ms-transition: all 0.25s ease;
   border-top: 1px solid #cdd6dc;
   font-size: calc(0.875rem - 0.05rem);
-  font-family: "roboto", sans-serif; }
+  font-family: "rubik", sans-serif; }
   .footer a {
     font-size: inherit; }
   @media (max-width: 991px) {

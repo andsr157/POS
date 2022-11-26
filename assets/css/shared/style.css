@@ -131,7 +131,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
 :root {
   --blue: #00aeef;
   --indigo: #6610f2;
@@ -174,7 +174,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "rubik", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
 *,
@@ -194,7 +194,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "rubik", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -5000,7 +5000,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "rubik", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5085,7 +5085,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "rubik", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -8554,7 +8554,7 @@ input:focus {
 :root,
 body {
   font-size: 1rem;
-  font-family: "roboto", sans-serif;
+  font-family: "rubik", sans-serif;
   color: #212529; }
 
 .h1,
@@ -8569,7 +8569,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "roboto", sans-serif;
+  font-family: "rubik", sans-serif;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -8689,7 +8689,7 @@ address p {
   margin: 0.38rem 0 0.75rem; }
 
 .card-title {
-  font-family: "roboto", sans-serif;
+  font-family: "rubik", sans-serif;
   font-weight: 500;
   color: #212229;
   margin-bottom: 15px;
@@ -8700,13 +8700,13 @@ address p {
 
 .card-subtitle {
   font-weight: 300;
-  font-family: "roboto", sans-serif;
+  font-family: "rubik", sans-serif;
   margin-top: 0.625rem;
   margin-bottom: 0.625rem; }
 
 .card-description {
   margin-bottom: 0.9375rem;
-  font-family: "roboto", sans-serif; }
+  font-family: "rubik", sans-serif; }
   .rtl .card-description {
     text-align: right; }
 
@@ -9211,7 +9211,7 @@ pre {
     width: 40%; }
     .card-revenue-table .revenue-item .revenue-amount p {
       font-size: 1.25rem;
-      font-family: "roboto", sans-serif;
+      font-family: "rubik", sans-serif;
       font-weight: 600;
       text-align: right; }
       .rtl .card-revenue-table .revenue-item .revenue-amount p {
@@ -9223,7 +9223,7 @@ pre {
   color: #ffffff; }
   .card-revenue .highlight-text {
     font-size: 1.875rem;
-    font-family: "roboto", sans-serif;
+    font-family: "rubik", sans-serif;
     font-weight: 500; }
   .card-revenue .badge {
     background-color: rgba(255, 255, 255, 0.2);
@@ -9367,7 +9367,7 @@ pre {
 .btn {
   font-size: 0.875rem;
   line-height: 1;
-  font-family: "roboto", sans-serif; }
+  font-family: "rubik", sans-serif; }
   .btn i {
     margin-right: 0.3125rem;
     font-size: inherit; }
@@ -10256,7 +10256,7 @@ pre {
 .form-control {
   display: inline-block;
   border: 1px solid #dee2e6;
-  font-family: "roboto", sans-serif;
+  font-family: "rubik", sans-serif;
   font-size: 0.75rem;
   color: #212529;
   padding: 0 .75rem;
@@ -10305,7 +10305,7 @@ select.form-control {
     -ms-flex-align: center;
     align-items: center;
     padding: 15px;
-    font-family: "roboto", sans-serif;
+    font-family: "rubik", sans-serif;
     font-size: 0.875rem; }
     .icons-list > div i {
       display: inline-block;
@@ -10442,7 +10442,7 @@ ul {
     .preview-list .preview-item .preview-item-content p {
       margin-bottom: 10px; }
       .preview-list .preview-item .preview-item-content p .content-category {
-        font-family: "roboto", sans-serif;
+        font-family: "rubik", sans-serif;
         padding-right: 15px;
         border-right: 1px solid #dee2e6; }
   .preview-list .preview-item .preview-actions {
@@ -10482,7 +10482,7 @@ ul {
   .table thead th {
     border-top: 0;
     border-bottom-width: 1px;
-    font-family: "roboto", sans-serif;
+    font-family: "rubik", sans-serif;
     font-weight: 500;
     color: #212529;
     border-bottom-color: #dee2e6; }
@@ -10741,7 +10741,7 @@ ul {
           border-color: #cfd5db;
           color: #b6b6b6; }
     .auth.theme-one .auto-form-wrapper .form-group .submit-btn {
-      font-family: "roboto", sans-serif;
+      font-family: "rubik", sans-serif;
       font-size: 13px;
       padding: 12px 8px;
       font-weight: 600; }

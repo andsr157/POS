@@ -19,7 +19,7 @@
                 <thead>
                     <tr>
                     <th>#</th>
-                    <th>name</th>
+                    <th>nama</th>
                     <th></th>
                     <th></th>
                     </tr>
@@ -34,11 +34,7 @@
                         </td>
                         
                         <td>
-                            
-                            <!-- <input type="hidden" name="category_id" value="<?=$data->id?>">
-                            <button onclick= "return confirm('Apakah anda yakin?')" class="btn btn-icons btn-rounded btn-secondary ml-1 btn-delete">
-                                <i class="mdi mdi-close"></i> -->
-                            
+                              
                         </td>
                         <td>
                             <a href="<?=base_url('category/edit/'.$data->category_id)?>">

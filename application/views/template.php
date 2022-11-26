@@ -18,6 +18,8 @@
       <link rel="shortcut icon" href="icons/favicon.png"/>
       <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
       <!-- End-CSS -->
+      <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/main/style.css">
+      <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/alert/style.css">
 
     </head>
     <body>
@@ -145,7 +147,7 @@
                       <a class="nav-link" href="<?=base_url('category')?>">Categories</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/supply') }}">Unit</a>
+                      <a class="nav-link" href="<?=base_url('unit')?>">Unit</a>
                     </li>
                   </ul>
                 </div>

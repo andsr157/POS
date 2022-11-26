@@ -10,7 +10,7 @@
 		</div>
 		<div class="card card-noborder b-radius">
 			<div class="card-body">
-				<?php //echo validation_errors();?>
+				<!-- <?php //echo validation_errors();?> -->
 				<form action="" method="post">
 				  <div class="form-group row">
 				  	<label class="col-12 font-weight-bold col-form-label">Nama <span class="text-danger">*</span></label>
@@ -26,7 +26,7 @@
 						  <input type="text" class="form-control" name="username" placeholder="Masukkan Username" value="<?=$this->input->post('username') ?? $row->username?>">
 						  <?=form_error('username')?>
 					  </div>
-				  </div>
+				  </div>	
 				  <div class="form-group row">
 					  <label class="col-12 font-weight-bold col-form-label">Password <span class="text-danger">*</span><small> (Biarkan kosong jika tidak ingin diganti)</small></label>
 					  <div class="col-12">
