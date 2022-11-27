@@ -22,10 +22,11 @@
                     <th>Barcode</th>
                     <th>Nama Barang</th>
                     <th>Kategori</th>
-                    <th>berat/jumlah</th>
-                    <th>unit</th>
+                    <th>Unit</th>
                     <th>Harga</th>
+                    <th>Stok</th>
                     <th></th>
+                   
                     </tr>
                 </thead>
                 <tbody>
@@ -40,17 +41,18 @@
                             <span class="ml-2"><?= $data->name?></span>
                         </td>
                         <td>    
-                            <span class="ml-2"><?= $data->category_id?></span>
+                            <span class="ml-2"><?= $data->category_name?></span>
                         </td>
                         <td>    
-                            <span class="ml-2"><?= $data->weight?></span>
+                            <span class="ml-2"><?= $data->unit_name?></span>
                         </td>
                         <td>    
-                            <span class="ml-2"><?= $data->unit_id?></span>
+                            <span class="ml-2"><?= $data->price?></span>
                         </td>
                         <td>    
-                            <span class="ml-2">Rp. <?= $data->price?></span>
+                            <span class="ml-2"><?= $data->stock?></span>
                         </td>
+                        
                         <td>
                             <a href="<?=base_url('item/edit/'.$data->item_id)?>">
                                 <button type="button" class="btn btn-edit btn-icons btn-rounded btn-secondary" data-toggle="modal" data-edit="1">

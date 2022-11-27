@@ -31,7 +31,7 @@
                             <select name="category" id="" class="form-control">
                                 <option value="">-Pilih-</option>
                                 <?php foreach($category->result() as $key => $data){ ?>
-                                    <option value="<?=$data->category_id?>"><?=$data->name?></option>
+                                    <option value="<?=$data->category_id?>" <?=$data->category_id == $row->category_id ? 'selected':null?>><?=$data->name?></option>
                                <?php }?>
 
                             </select>
@@ -40,13 +40,14 @@
                     <div class="form-group row">
                         <label class="col-12 font-weight-bold col-form-label">Unit<span class="text-danger">*</span></label>
                         <div class="col-12">
-                            <div class="input-group">
+                            <?php echo form_dropdown('unit', $unit, $selectedunit, 
+                            ['class' => 'form-control', 'required'=> 'required']) ?>
+                            <!-- <div class="input-group">
                                 <input type="number" class="form-control number-input" name="weight" placeholder="Masukkan Jumlah Satuan">
                                 <div class="input-group-append">
-                                    <?php echo form_dropdown('unit', $unit, $selectedunit, 
-                                    ['class' => 'form-control', 'required'=> 'required']) ?>
+                                    
                                 </div>
-                            </div>
+                            </div> -->
                             
                         </div>
                     </div>

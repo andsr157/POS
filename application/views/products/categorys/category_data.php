@@ -20,8 +20,7 @@
                     <tr>
                     <th>#</th>
                     <th>nama</th>
-                    <th></th>
-                    <th></th>
+                    <th>actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,9 +32,6 @@
                             <span class="ml-2"><?= $data->name?></span>
                         </td>
                         
-                        <td>
-                              
-                        </td>
                         <td>
                             <a href="<?=base_url('category/edit/'.$data->category_id)?>">
                                 <button type="button" class="btn btn-edit btn-icons btn-rounded btn-secondary" data-toggle="modal" data-edit="1">
