@@ -23,7 +23,7 @@ class Item extends CI_Controller{
         $item-> barcode = null;
         $item-> name = null;
         $item-> price = null;
-        $item-> weight = null;
+        $item-> category_id = null;
 
         $query_category = $this->category_m->get();
 
@@ -74,9 +74,20 @@ class Item extends CI_Controller{
     public function process() {
         $post = $this->input->post(null, TRUE);
         if(isset($_POST['add'])){
-            $this->item_m->add($post);
+            if($this->item_m->check_barcode($post['barcode'])->num_rows() > 0){
+                echo"<script>alert('barcode sudah dipakai barang lain')</script>";
+                echo"<script>window.location='".base_url('item/add')."'</script>";
+            }else{
+                $this->item_m->add($post); 
+            }
         }else if(isset($_POST['edit'])){
-            $this->item_m->edit($post);
+            if($this->item_m->check_barcode($post['barcode'], $post['id'])->num_rows() > 0){
+                echo"<script>alert('barcode sudah dipakai barang lain')</script>";
+                echo"<script>window.location='".base_url('item/edit/'.$post['id'])."'</script>";
+            }else{
+                $this->item_m->edit($post);
+            }
+
         }
         
         if($this->db->affected_rows() > 0){

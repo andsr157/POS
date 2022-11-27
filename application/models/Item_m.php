@@ -41,14 +41,21 @@ class item_m extends CI_Model{
         
     }
 
-
-
     public function del($id)
     {
         $this->db->where('item_id', $id);
         $this->db->delete('p_item');
     }
 
-    
+    function check_barcode($code, $id = null){
+        $this->db->from('p_item');
+        $this->db->where('barcode', $code);
+        if($id != null){
+            $this->db->where('item_id !=', $id);
+        }
+        $query = $this->db->get();
+        return $query;
 
+    }
 }
+
