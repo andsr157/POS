@@ -13,14 +13,17 @@
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendors/css/vendor.bundle.base.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendors/css/vendor.bundle.addons.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/shared/style.css">
+      <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/datatable/style.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/demo_1/style.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/user/style.css">
       <link rel="shortcut icon" href="icons/favicon.png"/>
       <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
       <!-- End-CSS -->
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/main/style.css">
       <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/alert/style.css">
-
+      <!-- <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/data-table/style.css"> -->
+      
     </head>
     <body>
       <div class="container-scroller">
@@ -149,6 +152,9 @@
                     <li class="nav-item">
                       <a class="nav-link" href="<?=base_url('unit')?>">Unit</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?=base_url('item')?>">Items</a>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -250,18 +256,22 @@
     <script src="<?php echo base_url() ?>assets/plugins/js/jquery.form-validator.min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/js/sweetalert.min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/js/jquery-ui.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/templates/script.js"></script>
-    <script type="text/javascript">
-      swal(
-          "Berhasil!",
-          "Akun baru berhasil dibuat",
-          "success"
-      );
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
-
-
-      
+    <script>
+        $(document).ready(function() {
+            $('#table1').DataTable();
+        });
     </script>
+    <!-- <script src="<?php //echo base_url() ?>assets/js/data-table/data-table.js"></script>
+    <script src="<?php //echo base_url() ?>assets/js/data-table/dataTables.select.min.js"></script> -->
+    <!-- <script>
+      $(documents).ready(function() {
+        $('#table1').DataTable()W
+      })
+    </script> -->
   
     <!-- End-Javascript -->
   </body>

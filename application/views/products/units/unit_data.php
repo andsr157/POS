@@ -15,13 +15,12 @@
         <div class="row">
         	<div class="col-12 table-responsive">
                 
-                <table class="table table-custom">
+                <table class="table table-custom" id="table1">
                 <thead>
                     <tr>
                     <th>#</th>
                     <th>nama</th>
-                    <th></th>
-                    <th></th>
+                    <th>actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,9 +32,7 @@
                             <span class="ml-2"><?= $data->name?></span>
                         </td>
                         
-                        <td>
-                              
-                        </td>
+
                         <td>
                             <a href="<?=base_url('unit/edit/'.$data->unit_id)?>">
                                 <button type="button" class="btn btn-edit btn-icons btn-rounded btn-secondary" data-toggle="modal" data-edit="1">
