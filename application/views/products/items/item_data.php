@@ -35,7 +35,12 @@
                     <tr>
                         <td><?=$no++?></td>
                         <td>    
-                            <span class="ml-2"><?= $data->barcode?></span>
+                            <span class="ml-2"><?= $data->barcode?></span><br>
+                            <a href="<?=base_url('item/barcode_qrcode/'.$data->item_id)?>">
+                                <button type="button" class="btn btn-rounded btn-secondary" data-toggle="modal" data-edit="1">
+                                Generate<i class="mdi"></i>
+                                </button>
+                            </a>
                         </td>
                         <td>    
                             <span class="ml-2"><?= $data->name?></span>

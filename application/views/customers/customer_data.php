@@ -21,7 +21,7 @@
                     <th>#</th>
                     <th>Nama</th>
                     <th>Kelamin</th>
-                    <th>No.Hp</th> 
+                    <th>No.Hp</th>
                     <th>Alamat</th>
                     <th></th>
                     </tr>

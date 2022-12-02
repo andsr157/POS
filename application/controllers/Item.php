@@ -104,4 +104,9 @@ class Item extends CI_Controller{
         }
         echo"<script>window.location='".base_url('item')."'</script>";
     }
+
+    function barcode_qrcode($id){
+        $data['row'] = $this->item_m->get($id)->row();
+        $this->template->load('template','products/items/barcode_qrcode', $data);;
+    }
 }
