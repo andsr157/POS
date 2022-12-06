@@ -3,7 +3,7 @@
         <div class="page-header d-flex justify-content-start align-items-center">
             <div class="quick-link-wrapper d-md-flex flex-md-wrap">
                 <ul class="quick-links">
-                    <li><a href="">Barcodee</a></li>
+                    <li><a href="">Barcode</a></li>
                 </ul>
             </div>
         </div>

@@ -159,9 +159,23 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('/transaction') }}">
+                <a class="nav-link" data-toggle="collapse" href="#transaksi" aria-expanded="false" aria-controls="kelola_barang">
                   <span class="menu-title">Transaksi</span>
+                  <i class="menu-arrow"></i>
                 </a>
+                <div class="collapse" id="transaksi">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?=base_url('category')?>">Sales</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?=base_url('stock/in')?>">Stock-in</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?=base_url('item')?>">Stock-out</a>
+                    </li>
+                  </ul>
+                </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#kelola_laporan" aria-expanded="false" aria-controls="kelola_laporan">
@@ -184,44 +198,6 @@
         <!-- End-SideNav -->
 
         <div class="main-panel">
-          <div class="row">
-            <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="notificationModalLabel">Daftar Notifikasi</h5>
-                    <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="row">
-                      <div class="col-12">
-                          <div class="d-flex justify-content-start align-items-center mb-3">
-                            <div class="icon-notification">
-                              <i class="mdi mdi-alert m-auto text-warning"></i>
-                            </div>
-                            <div class="text-group ml-3">
-                              <p class="m-0 title-notification">Barang Hampir Habis</p>
-                              <p class="m-0 description-notification">Stok tersisa</p>
-                            </div>
-                          </div>
-                          <div class="d-flex justify-content-start align-items-center mb-3">
-                            <div class="icon-notification">
-                              <i class="mdi mdi-alert m-auto text-danger"></i>
-                            </div>
-                            <div class="text-group ml-3">
-                              <p class="m-0 title-notification">Barang Telah Habis</p>
-                              <p class="m-0 description-notification">Stok barang telah habis</p>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="content-wrapper" id="content-web-page">
             <?php echo $contents?>
           </div>
@@ -256,23 +232,32 @@
     <script src="<?php echo base_url() ?>assets/plugins/js/jquery.form-validator.min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/js/sweetalert.min.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/js/jquery-ui.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
+  
     <script>
         $(document).ready(function() {
             $('#table1').DataTable();
         });
     </script>
-    <!-- <script src="<?php //echo base_url() ?>assets/js/data-table/data-table.js"></script>
-    <script src="<?php //echo base_url() ?>assets/js/data-table/dataTables.select.min.js"></script> -->
-    <!-- <script>
-      $(documents).ready(function() {
-        $('#table1').DataTable()W
-      })
-    </script> -->
-  
-    <!-- End-Javascript -->
+    <script>
+    $(document).ready(function(){
+        $(document).on('click', '#select', function(){
+            var item_id = $(this).data('id');
+            var barcode = $(this).data('barcode');
+            var name = $(this).data('name');
+            var unit_name = $(this).data('unit');
+            var stock = $(this).data('stock');
+            $('#item_id').val(item_id);
+            $('#barcode').val(barcode);
+            $('#item_name').val(name);
+            $('#unit_name').val(unit_name);
+            $('#stock').val(stock);
+            $("#modal-item").modal('hide')
+        })
+    })
+  </script>
+    
   </body>
 </html>

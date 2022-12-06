@@ -23,4 +23,10 @@ function check_admin(){
     if($ci->lvalidasi->user_login()->level != 1){
         redirect('dashboard');
     }
-};
+
+}
+
+function indo_currency($nominal) {
+    $result = "Rp " . number_format($nominal,0,',','.');
+    return $result;
+}
