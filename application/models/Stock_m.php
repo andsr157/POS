@@ -8,7 +8,6 @@ class Stock_m extends CI_Model{
             'type' => 'in',
             'detail' => $post['detail'],
             'supplier_id' => $post['supplier'] == '' ? null :$post['supplier'],
-            'supplier_id' => $post['supplier'],
             'qty' => $post['qty'],
             'date' => $post['date'],
             'id' => $this->session->userdata('user_id'),
