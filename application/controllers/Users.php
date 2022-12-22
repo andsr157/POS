@@ -58,12 +58,23 @@ class Users extends CI_Controller{
     public function del()
     {
         $id_name = $this->input->post('user_id');
-        $this->user_m->del($id_name);
+        if($id_name == 9){
+            echo"<script>alert('Akun Utama tidak dapat dihapus')</script>";
+            echo"window.location='".base_url('users')."'</script>";
+        }else{
 
-        if($this->db->affected_rows() > 0){
+            $this->user_m->del($id_name);
+            $error = $this->db->error();
+        if($error['code'] != 0){
+            echo"<script>alert('data tidak dapat dihapus (sudah digunakan / berelasi)')</script>";
+        }
+        else{
             echo"<script>alert('data berhasil dihapus')</script>";
         }
+        }
+
         echo"<script>window.location='".base_url('users')."'</script>";
+        
     }
 
 

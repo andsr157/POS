@@ -66,34 +66,3 @@
   </div>
 </div>
 
-<div class="swal-overlay .swal-overlay--show-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" id="del_alert" aria-hidden="true"  >
-  <div class="swal-modal" role="dialog" aria-modal="true">
-    <div class="swal-icon swal-icon--warning">
-      <span class="swal-icon--warning__body">
-        <span class="swal-icon--warning__dot"></span>
-      </span>
-    </div>
-    <div class="swal-title" style>Apa anda yakin?</div>           
-    <div class="swal-text" style>Data akun akan terhapus, klik oke untuk melanjutkan</div>
-    <div class="swal-footer">
-      <div class="swal-button-container">
-        <button class="swal-button swal-button--cancel" tabindex="0" autocomplete="off">Cancel</button>
-        <div class="swal-button__loader">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      <div class="swal-button-container">
-        <a href="<?=base_url('users/del/'.$data->id)?>"><button class="swal-button swal-button--confirm swal-button--danger">OK</button></a>
-        
-        <div class="swal-button__loader">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-      </div>
-    </div>           
-  </div>
-       
-</div>

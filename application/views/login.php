@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendors/css/vendor.bundle.addons.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/shared/style.css">
-    <link rel="stylesheet" href="plugins/css/sweetalert.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/login/style.css">
     <link rel="shortcut icon" href="icons/favicon.png"/>
     <!-- End-CSS -->
@@ -62,11 +61,6 @@
     <script src="<?php echo base_url() ?>assets/vendors/js/vendor.bundle.addons.js"></script>
     <script src="<?php echo base_url() ?>assets/js/shared/off-canvas.js"></script>
     <script src="<?php echo base_url() ?>assets/js/shared/misc.js"></script>
-    <script src="plugins/js/jquery.form-validator.min.js"></script>
-    <script src="plugins/js/sweetalert.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/login/script.js"></script>
-    <script type="text/javascript">
-    </script>
     <!-- End-Javascript -->
 
   </body>

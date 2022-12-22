@@ -37,7 +37,7 @@
                         </td>
                         <td><?=$data->phone?></td>
                         <td><?= $data->address?></td>
-                        <td><?= $data->description?></td>
+                        <td><textarea style="width:150px; border:none;"rows="4" class="form-control"><?= $data->description?></textarea></td>
                         
                         <td>
                             <a href="<?=base_url('supplier/edit/'.$data->supplier_id)?>">

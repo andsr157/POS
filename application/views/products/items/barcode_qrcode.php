@@ -18,9 +18,15 @@
                     <?=$row->barcode?>
                 </div>
         
-</div> 
-</div>
-</div>
+            </div> 
+            <div class="card-body">
+                <a href="<?=base_url('item/barcode_print/'.$row->item_id)?>" class="btn btn-edit btn-secondary">
+                        <i class="mdi mdi-note">print</i>
+                </a>
+            </div>
+           
+        </div>
+    </div>
 </div>
 
 <div class="row mt-5">
@@ -37,14 +43,19 @@
             <div class="col">
                     <?php
                         $qrCode = new Endroid\QrCode\QrCode($row->barcode);
-                        $qrCode->writeFile('upload/qrcode/item-'.$row->item_id.'.png');
+                        $qrCode->writeFile('upload/qrcode/item-'.$row->barcode.'.png');
                     ?>
-                    <img src="<?=base_url('upload/qrcode/item-'.$row->item_id.'.png')?>" style= "width:100px">
+                    <img src="<?=base_url('upload/qrcode/item-'.$row->barcode.'.png')?>" style= "width:100px">
                     <br>
                     <?=$row->barcode?>
                 </div>
         
-</div> 
+            </div> 
+            <div class="card-body">
+                <a href="<?=base_url('item/qrcode_print/'.$row->item_id)?>" class="btn btn-edit btn-secondary">
+                        <i class="mdi mdi-note">print</i>
+                </a>
+            </div>
 </div>
 </div>
 </div>
