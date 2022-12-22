@@ -35,13 +35,25 @@ class Stock extends CI_Controller{
         redirect('stock/in');
     }
 
+<<<<<<< HEAD
+=======
+    public function stock_out_data(){
+        $this->template->load('template', 'transaction/stock_out/stock_out_data');
+    }
+
+
+>>>>>>> dc4407ecb62a1a6a991894219b119436244ec24d
     public function process(){
         if(isset($_POST['in_add'])){
             $post = $this->input->post(null, TRUE);
             $this->stock_m->add_stock_in($post);
             $this->item_m->update_stock_in($post);
             if($this->db->affected_rows() > 0){
+<<<<<<< HEAD
                 echo"<script>alert(Data Stock In berhasil disimpan)</script>";
+=======
+                echo"<script> alert('data berhasil disimpan')</script>";
+>>>>>>> dc4407ecb62a1a6a991894219b119436244ec24d
             }
             redirect('stock/in');
         }
