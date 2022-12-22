@@ -159,20 +159,20 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#transaksi" aria-expanded="false" aria-controls="kelola_barang">
+                <a class="nav-link" data-toggle="collapse" href="#transaksi" aria-expanded="false" aria-controls="transaksi">
                   <span class="menu-title">Transaksi</span>
                   <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="transaksi">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="<?=base_url('category')?>">Sales</a>
+                      <a class="nav-link" href="<?=base_url()?>">Sales</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="<?=base_url('stock/in')?>">Stock-in</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="<?=base_url('item')?>">Stock-out</a>
+                      <a class="nav-link" href="<?=base_url('stock/out')?>">Stock-out</a>
                     </li>
                   </ul>
                 </div>
@@ -241,6 +241,8 @@
             $('#table1').DataTable();
         });
     </script>
+
+    <!-- script untuk stock in -->
     <script>
     $(document).ready(function(){
         $(document).on('click', '#select', function(){
@@ -255,6 +257,26 @@
             $('#unit_name').val(unit_name);
             $('#stock').val(stock);
             $("#modal-item").modal('hide')
+        })
+    })
+  </script>
+
+<!-- script untuk detail history stock -->
+<script>
+    $(document).ready(function(){
+        $(document).on('click', '#dtl_set', function(){
+            var barcode = $(this).data('barcode');
+            var itemname = $(this).data('itemname');
+            var detail = $(this).data('detail');
+            var suppliername = $(this).data('suppliername');
+            var qty = $(this).data('qty');
+            var date = $(this).data('date');  
+            $('#barcode').text(barcode);
+            $('#item_name').text(itemname);
+            $('#detail').text(detail);
+            $('#supplier_name').text(suppliername);
+            $('#qty').text(qty);
+            $('#date').text(date);
         })
     })
   </script>
