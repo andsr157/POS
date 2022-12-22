@@ -58,22 +58,6 @@ $route['stock/in'] = 'stock/stock_in_data';
 $route['stock/in/add'] = 'stock/stock_in_add';
 $route['stock/in/del/(:num)/(:num)'] = 'stock/stock_in_del';
 
-<<<<<<< HEAD
 $route['stock/out'] = 'stock/stock_out_data';
 $route['stock/out/add'] = 'stock/stock_out_add';
 $route['stock/out/del/(:num)/(:num)'] = 'stock/stock_out_del';
-=======
-<<<<<<< HEAD
-$route['stock/out'] = 'stock/stock_out_data';
-$route['stock/out/add'] = 'stock/stock_out_add';
-$route['stock/out/del/(:num)/(:num)'] = 'stock/stock_out_del';
-=======
-<<<<<<< HEAD
-$route['stock/out'] = 'stock/stock_out_data';
-$route['stock/out/add'] = 'stock/stock_out_add';
-$route['stock/out/del/(:num)/(:num)'] = 'stock/stock_out_del';
-=======
->>>>>>> dc4407ecb62a1a6a991894219b119436244ec24d
->>>>>>> eae7ab6cbeff71b3851e0b56ed488c9927f3e7b2
->>>>>>> 7d994f03199fda36c5e403ee99b2f34b9ca81e78
-
