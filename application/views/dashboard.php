@@ -71,6 +71,7 @@
       </div>
        
     </div>
+<<<<<<< HEAD
     <div class="row">
         <div class="col-12">
             <div class="card b-radius card-noborder " style="height:500px;">
@@ -83,6 +84,8 @@
             </div>
         </div>
     </div>
+=======
+>>>>>>> 7d994f03199fda36c5e403ee99b2f34b9ca81e78
     
   </div>
   

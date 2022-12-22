@@ -22,7 +22,14 @@ class Stock extends CI_Controller{
 
     public function stock_in_del(){
         $stock_id = $this->uri->segment(4);
+<<<<<<< HEAD
         
+=======
+        $item_id = $this->uri->segment(5);
+        $qty = $this->stock_m->get($stock_id)->row()->qty;
+        $data = ['qty'=> $qty, 'item_id'=>$item_id];
+        $this->item_m->update_stock_out($data);
+>>>>>>> 7d994f03199fda36c5e403ee99b2f34b9ca81e78
 
         $this->stock_m->del($stock_id);
         
@@ -32,13 +39,39 @@ class Stock extends CI_Controller{
         redirect('stock/in');
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    public function stock_out_data(){
+        $this->template->load('template', 'transaction/stock_out/stock_out_data');
+    }
+
+
+>>>>>>> dc4407ecb62a1a6a991894219b119436244ec24d
+>>>>>>> eae7ab6cbeff71b3851e0b56ed488c9927f3e7b2
+>>>>>>> 7d994f03199fda36c5e403ee99b2f34b9ca81e78
     public function process(){
         if(isset($_POST['in_add'])){
             $post = $this->input->post(null, TRUE);
             $this->stock_m->add_stock_in($post);
             $this->item_m->update_stock_in($post);
             if($this->db->affected_rows() > 0){
+<<<<<<< HEAD
                 echo"<script>alert(Data Stock In berhasil disimpan)</script>";
+=======
+<<<<<<< HEAD
+                echo"<script>alert(Data Stock In berhasil disimpan)</script>";
+=======
+<<<<<<< HEAD
+                echo"<script>alert(Data Stock In berhasil disimpan)</script>";
+=======
+                echo"<script> alert('data berhasil disimpan')</script>";
+>>>>>>> dc4407ecb62a1a6a991894219b119436244ec24d
+>>>>>>> eae7ab6cbeff71b3851e0b56ed488c9927f3e7b2
+>>>>>>> 7d994f03199fda36c5e403ee99b2f34b9ca81e78
             }
             redirect('stock/in');
         }
@@ -74,6 +107,13 @@ class Stock extends CI_Controller{
 
     public function stock_out_del(){
         $stock_id = $this->uri->segment(4);
+<<<<<<< HEAD
+=======
+        $item_id = $this->uri->segment(5);
+        $qty = $this->stock_m->get($stock_id)->row()->qty;
+        $data = ['qty'=> $qty, 'item_id'=>$item_id];
+        $this->item_m->update_stock_in($data);
+>>>>>>> 7d994f03199fda36c5e403ee99b2f34b9ca81e78
 
         $this->stock_m->del($stock_id);
         
