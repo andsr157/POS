@@ -20,7 +20,7 @@ class Supplier extends CI_Controller{
     {
         $supplier = new stdClass(); 
         $supplier-> supplier_id = null;
-        $supplier-> nama = 'budi';
+        $supplier-> nama = null ;
         $supplier->phone = null;
         $supplier->address = null;
         $supplier->description = null;
@@ -63,7 +63,11 @@ class Supplier extends CI_Controller{
 
     public function del($id){
         $this->supplier_m->del($id);
-        if($this->db->affected_rows() > 0){
+        $error = $this->db->error();
+        if($error['code'] != 0){
+            echo"<script>alert('data tidak dapat dihapus (sudah digunakan / berelasi)')</script>";
+        }
+        else{
             echo"<script>alert('data berhasil dihapus')</script>";
         }
         echo"<script>window.location='".base_url('supplier')."'</script>";
