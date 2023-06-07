@@ -5,7 +5,7 @@ class customer extends CI_Controller{
     function __construct()
     {
         parent::__construct();
-        check_not_login();
+        // check_not_login();
         $this->load->model('customer_m');
     }
 
@@ -16,7 +16,7 @@ class customer extends CI_Controller{
         $this->template->load('template','customers/customer_data', $data);
     }
 
-    public function add()
+    public function add()   
     {
         $customer = new stdClass(); 
         $customer-> customer_id = null;

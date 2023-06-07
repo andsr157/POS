@@ -20,7 +20,7 @@ class item_m extends CI_Model{
         $this->db->select('p_item.*, p_category.name as category_name, p_unit.name as unit_name');
         $this->db->from('p_item');
         $this->db->join('p_category', 'p_category.category_id = p_item.category_id');
-        $this->db->join('p_unit', 'p_unit.unit_id = p_item.unit_id');
+        $this->db->join('p_unit', 'p_unit.unit_id = p_item.unit_id');   
         if($barcode != null){
             $this->db->where('barcode', $barcode);
         }

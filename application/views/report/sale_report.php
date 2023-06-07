@@ -48,7 +48,6 @@
                                             data-cash="<?=indo_currency($data->cash)?>"
                                             data-remaining="<?=indo_currency($data->remaining)?>"
                                             data-note="<?=$data->note?>"
-                                            data-cashier="<?=$data->user_name?>"
                                             data-saleid="<?=$data->sale_id?>">
                                                 <i class="mdi mdi-eye "></i>
                                             </button>
@@ -129,7 +128,7 @@
                                 <th>Barang</th>
                                 <td colspan="3"><span id='product'></span></td>
                             </tr>
-                        </tbody>
+                            </tbody>
                     </table>
                 </div>
             </div>

@@ -11,7 +11,6 @@ class category extends CI_Controller{
 
     public function index()
     {
-
         $data['row'] = $this->category_m->get();
         $this->template->load('template','products/categorys/category_data', $data);
     }

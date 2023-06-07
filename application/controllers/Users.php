@@ -9,8 +9,8 @@ class Users extends CI_Controller{
     function __construct()
     {
         parent::__construct();
-        check_not_login();
-        check_admin();;
+        // check_not_login();
+        // check_admin();
         $this->load->model('user_m');
         $this->load->library('form_validation');
     }
@@ -27,7 +27,7 @@ class Users extends CI_Controller{
         $this->form_validation->set_rules('username','Username','required|min_length[5]|is_unique[users.username]',
             array('is_unique' => 'Username sudah dipakai ganti yang lain'));
         $this->form_validation->set_rules('password','Password','required|required|min_length[5]');
-        $this->form_validation->set_rules('passconf','Konfirmasi Password','required|matches[password]',
+        $this->form_validation->set_rules('passconf','Konfirmasi Password','required|matches[password]',    
             array('matches' => '%s tidak sesuai dengan password'));
 
         // $this->form_validation->set_rules('email','Email','required|email_valid',
@@ -57,7 +57,7 @@ class Users extends CI_Controller{
 
     public function del()
     {
-        $id_name = $this->input->post('user_id');
+        $id_name = $this->input->post('user_id');   
         if($id_name == 9){
             echo"<script>alert('Akun Utama tidak dapat dihapus')</script>";
             echo"window.location='".base_url('users')."'</script>";
@@ -138,7 +138,7 @@ class Users extends CI_Controller{
         }
     }
 
-    function email_check(){
+        function email_check(){
         $post = $this->input->post(null, TRUE);
         $query = $this->db->query("SELECT * FROM users WHERE email = '$post[email]' AND id != '$post[user_id]'");
         if($query->num_rows() > 0){

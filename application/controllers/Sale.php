@@ -1,4 +1,8 @@
-<?php defined('BASEPATH') or exit ('no direct script access allowed');
+<?php
+
+use Picqer\Barcode\Barcode;
+
+ defined('BASEPATH') or exit ('no direct script access allowed');
     
 class Sale extends CI_Controller{
 
@@ -32,6 +36,24 @@ class Sale extends CI_Controller{
             $params = array("success" => true, "item" => $item);
         }else{          
             $params = array("success" => false);
+        }
+        echo json_encode($params);
+    }
+
+    function get_list_item(){
+        $order_code = $this->input->post('barcode');
+        $order_code_ex = explode('/', $order_code);
+
+        foreach ($order_code_ex as $barcode){
+            $item = $this->item_m->get_barcode($barcode)->row();
+            if(!empty($item)){
+                $items[] = $item;
+            }
+        }
+        if (!empty($items)){
+            $params = array("success" => true, "items" => $items);
+        }else{
+            $params = array("succes" => false);
         }
         echo json_encode($params);
     }
@@ -109,7 +131,7 @@ class Sale extends CI_Controller{
 
     }
 
-    function cart_data(){
+    function cart_data(){ 
         $cart = $this->sale_m->get_cart();
         $data['cart'] = $cart;
         $this->load->view('transaction/sale/cart_data' ,$data);

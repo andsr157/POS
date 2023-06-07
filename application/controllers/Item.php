@@ -1,20 +1,26 @@
 <?php defined('BASEPATH') or exit ('no direct script access allowed');
-    
-class Item extends CI_Controller{
+    require APPPATH . '/libraries/REST_Controller.php';
+    use Restserver\Libraries\REST_Controller;
+class Item extends REST_Controller{
 
     function __construct()
     {
         parent::__construct();
-        check_not_login();
+        // check_not_login();
         $this->load->model(['item_m','category_m','unit_m']);
     }
 
-    public function index()
-    {
-
-        $data['row'] = $this->item_m->get();
-        $this->template->load('template','products/items/item_data', $data);
+    function index_get(){
+        $data = $this->item_m->get();
+        $this->response($data, 200);
     }
+
+    // public function index()
+    // {
+
+    //     $data['row'] = $this->item_m->get();
+    //     $this->template->load('template','products/items/item_data', $data);
+    // }
 
     public function add()
     {
