@@ -55,7 +55,7 @@
                         <div class="card card-noborder b-radius">
                             <div class="card-body">
                                 <div align="right">
-                                    <h4>Invoice <b><span id=invoice><?=$invoice ?></span></b></h4>
+                                    <h4>Invoice <b><span id=invoice><?= $invoice ?></span></b></h4>
                                     <h1><b><span id="grand_total2" style="font-size:50pt; color:#19d895;">0</span></b></h1>
                                 </div>
                             </div>
@@ -121,12 +121,12 @@
                                     </tr>
                                     <tr>
                                         <td class="text-left">Customer</td>
-                                        <td>    
+                                        <td>
                                             <div>
                                                 <select id="customer" class="form-control">
                                                     <option class="text-right" value="">Umum</option>
                                                     <?php foreach ($customer as $cust => $data) { ?>
-                                                        <option value="<?=$data->customer_id?>"><?=$data->name?></option>
+                                                        <option value="<?= $data->customer_id ?>"><?= $data->name ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
@@ -145,19 +145,19 @@
                                     <tr>
                                         <td class="text-left">Diskon</td>
                                         <td class="text-right">
-                                            <input type="number" class="form-control text-right px-4" id="discount" placeholder="0" value="" style="background-color:#ffff;" >
+                                            <input type="number" class="form-control text-right px-4" id="discount" placeholder="0" value="" style="background-color:#ffff;">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" >
-                                            <input style="background-color:white; " type="number" class="form-control text-center" id="grand_total" placeholder="0" value=""  readonly>
+                                        <td colspan="2">
+                                            <input style="background-color:white; " type="number" class="form-control text-center" id="grand_total" placeholder="0" value="" readonly>
                                         </td>
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-12 mt-2">
-                                <table class="table-payment-3">
-                                    <tr>
+                            <tr>
+                                <div class="col-12 mt-2">
+                                    <table class="table-payment-3">
                                         <td>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -166,51 +166,51 @@
                                                 <input type="text" id="cash" class="form-control number-input input-notzero bayar-input" name="bayar" placeholder="Masukkan nominal bayar">
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">Rp.</div>
-                                                </div>
-                                                <input type="text" id="change" class="form-control number-input input-notzero bayar-input" name="bayar" placeholder="Kembalian" readonly>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td class="left">
-                                            <button id="cancel_payment" class="btn btn-danger" type="button">Cancel</button>
-                                        </td>
-                                        <td class="text-right">
-                                            <button id="process_payment" class="btn btn-bayar" type="button">Bayar</button>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card card-noborder b-radius mt-3"> 
-                    <div class="card-body">
-                        <table width=100%>
+                            </tr>
                             <tr>
-                                <td style="vertical-align: top;">
-                                    <label for="note">Note</label>
-                                </td>
                                 <td>
-                                    <div>
-                                        <textarea id="note" rows="4" class="form-control"></textarea>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">Rp.</div>
+                                        </div>
+                                        <input type="text" id="change" class="form-control number-input input-notzero bayar-input" name="bayar" placeholder="Kembalian" readonly>
                                     </div>
                                 </td>
                             </tr>
-                        </table>
+
+                            <tr>
+                                <td class="left">
+                                    <button id="cancel_payment" class="btn btn-danger" type="button">Cancel</button>
+                                </td>
+                                <td class="text-right">
+                                    <button id="process_payment" class="btn btn-bayar" type="button">Bayar</button>
+                                </td>
+                            </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="card card-noborder b-radius mt-3">
+                <div class="card-body">
+                    <table width=100%>
+                        <tr>
+                            <td style="vertical-align: top;">
+                                <label for="note">Note</label>
+                            </td>
+                            <td>
+                                <div>
+                                    <textarea id="note" rows="4" class="form-control"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
-    </form>
+</div>
+</form>
 </div>
 
 
@@ -247,8 +247,7 @@
                                     <td><?= indo_currency($data->price) ?></td>
                                     <td><?= $data->stock ?></td>
                                     <td>
-                                        <button class="btn btn-outline btn-sm" style="color:#1c45ef" id="sale_s" 
-                                        data-id="<?= $data->item_id ?>" data-barcode="<?= $data->barcode ?>" data-price="<?= $data->price ?>" data-stock="<?= $data->stock ?>">
+                                        <button class="btn btn-outline btn-sm" style="color:#1c45ef" id="sale_s" data-id="<?= $data->item_id ?>" data-barcode="<?= $data->barcode ?>" data-price="<?= $data->price ?>" data-stock="<?= $data->stock ?>">
 
                                             <i class="mdi mdi-send"></i>
                                         </button>
@@ -305,7 +304,7 @@
                             <input type="number" class="form-control" id="stock_item" value="" readonly>
                         </div>
                     </div>
-                   
+
                 </div>
                 <div class="form-group row">
                     <label class="col-12 font-weight-bold col-form-label">Total Sebelum Diskon<span class="text-danger">*</span></label>

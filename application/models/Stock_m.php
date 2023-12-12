@@ -1,13 +1,6 @@
 <?php
-<<<<<<< HEAD
 defined('BASEPATH') or exit ('no direct script access allowed');
-=======
 
-use phpDocumentor\Reflection\Types\Null_;
-
- defined('BASEPATH') or exit ('no direct script access allowed');
->>>>>>> 7d994f03199fda36c5e403ee99b2f34b9ca81e78
-    
 class Stock_m extends CI_Model{
     
     public function get($id = null){

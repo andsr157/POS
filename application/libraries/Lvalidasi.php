@@ -15,7 +15,6 @@ class Lvalidasi{
         return $user_data;
     }
 
-<<<<<<< HEAD
     function PdfGenerator($html, $filename, $paper, $orientation) {
 
         $options = new Dompdf\Options();
@@ -40,9 +39,6 @@ class Lvalidasi{
 
 }
 
-
-=======
->>>>>>> 7d994f03199fda36c5e403ee99b2f34b9ca81e78
 
     public function count_item() {
         $this->ci->load->model('item_m');

@@ -12,7 +12,7 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
-		"picqer/php-barcode-generator": "^2.0",
+		"picqer/php-barcode-generator": "^2.4",
 		"endroid/qr-code": "^3.9",
 		"dompdf/dompdf": "^2.0"
 	},
@@ -33,6 +33,7 @@
 	},
 	"require-dev": {
 		"mikey179/vfsstream": "1.6.*",
-		"phpunit/phpunit": "4.* || 5.* || 9.*"
+		"kenjis/ci-phpunit-test": "3.0",
+		"phpunit/phpunit": "^9.6"
 	}
 }
