@@ -45,8 +45,8 @@
               <i class="mdi mdi-account-circle"></i> </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
-                <p class="mb-1 mt-3 font-weight-semibold"><?= $this->lvalidasi->user_login()->nama ?></p>
-                <p class="font-weight-light text-muted mb-0"><?= $this->lvalidasi->user_login()->username ?></p>
+                <!-- <p class="mb-1 mt-3 font-weight-semibold"><?= $this->lvalidasi->user_login()->nama ?></p> -->
+                <!-- <p class="font-weight-light text-muted mb-0"><?= $this->lvalidasi->user_login()->username ?></p> -->
               </div>
               <a href="<?= base_url('users/edit/' . $this->session->userdata['user_id']) ?>" class="dropdown-item">Edit Profil</a>
               <a href="<?= base_url('auth/logout') ?>" class="dropdown-item">Sign Out</a>
@@ -285,11 +285,11 @@
         var qty = $('#qty').val()
         var qty_cart = $('#qty_cart').val()
         if (item_id == '') {
-          alert('product belum dipuilih')
+          alert('product belum dipilih')
           $('#barcode').focus()
         } else if (stock < 1 || parseInt(stock) < (parseInt(qty_cart) + parseInt(qty))) {
           alert('stock tidak mencukupi')
-          $('#barcode').focus()
+          $('#qty').focus()
         } else {
           $.ajax({
             type: 'POST',

@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -61,4 +61,3 @@ $route['stock/in/del/(:num)/(:num)'] = 'stock/stock_in_del';
 $route['stock/out'] = 'stock/stock_out_data';
 $route['stock/out/add'] = 'stock/stock_out_add';
 $route['stock/out/del/(:num)/(:num)'] = 'stock/stock_out_del';
-
