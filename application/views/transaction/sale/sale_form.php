@@ -21,10 +21,10 @@
 
                                 <div class="d-flex justify-content-start align-items-center">
                                     <div class="transaction-code ">
-                                        <input type="text" id="item_id">
-                                        <input type="text" id="price">
-                                        <input type="text" id="stock">
-                                        <input type="text" id="qty_cart">
+                                        <input type="hidden" id="item_id">
+                                        <input type="hidden" id="price">
+                                        <input type="hidden" id="stock">
+                                        <input type="hidden" id="qty_cart">
                                         <input type="text" class="form-control" name="barcode" id="barcode" placeholder="Barcode" value="">
                                     </div>
                                 </div>
@@ -35,137 +35,136 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- invoice -->
-                    <div class="col-12 col-sm-6 mb-4 ">
-                        <div class="card card-noborder b-radius">
-                            <div class="card-body">
-                                <div align="right">
-                                    <h4>Invoice <b><span id=invoice><?= $invoice ?></span></b></h4>
-                                    <h1><b><span id="grand_total2" style="font-size:50pt; color:#19d895;">0</span></b></h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- daftar pesanan -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card card-noborder b-radius">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-12 d-flex justify-content-start align-items-center">
-                                        <div class="cart-icon mr-3">
-                                            <i class="mdi mdi-cart-outline"></i>
-                                        </div>
-                                        <p class="m-0 text-black-50">Daftar Pesanan</p>
-                                    </div>
-                                    <div class="col-12 mt-3 table-responsive">
-                                        <table class="table table-checkout " id="table2">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Barcode</th>
-                                                    <th>Barang</th>
-                                                    <th>Harga</th>
-                                                    <th>Qty</th>
-                                                    <th>Diskon</th>
-                                                    <th>Total</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="cart_table">
-                                                <?php $this->view('transaction/sale/cart_data'); ?>
+                            <div class="col-12 d-flex mt-3 ">
+                                <div class="d-flex justify-content-start align-items-center">
 
-                                                <input type="number" id="qty" class="form-control" name="nama" placeholder="Masukan Jumlah" value="1">
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <button class="btn btn-search" id="add_cart" type="button">
-                                        <i class="mdi mdi-cart-outline"></i>
-                                    </button>
+                                    <input type="number" id="qty" class="form-control" name="nama" placeholder="Masukan Jumlah" value="1">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- invoice -->
-                    <div class="col-12 col-sm-6 mb-4 ">
-                        <div class="card card-noborder b-radius">
-                            <div class="card-body">
-                                <div align="right">
-                                    <h4>Invoice <b><span id=invoice><?= $invoice ?></span></b></h4>
-                                    <h1><b><span id="grand_total2" style="font-size:50pt; color:#19d895;">0</span></b></h1>
-                                </div>
+                            <div class="col-12 mt-3">
+                                <button class="btn btn-search" id="add_cart" type="button">
+                                    <i class="mdi mdi-cart-outline"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12">
+                <!-- invoice -->
+                <div class="col-12 col-sm-6 mb-4 ">
+                    <div class="card card-noborder b-radius">
+                        <div class="card-body">
+                            <div align="right">
+                                <h4>Invoice <b><span id=invoice><?= $invoice ?></span></b></h4>
+                                <h1><b><span id="grand_total2" style="font-size:50pt; color:#19d895;">0</span></b></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- daftar pesanan -->
+            <div class="row">
+                <div class="col-12">
                     <div class="card card-noborder b-radius">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-12 bg-dark-blue">
-                                    <table class="table-payment-1">
-                                        <tr>
-                                            <td class="text-left"><b>Tanggal</b></td>
-                                            <td class="text-right">
-                                                <input type="date" id="date" class="form-control text-right" name="date" placeholder="" value="<?= date('Y-m-d') ?>" style="background-color:#ffff;" readonly>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Kasir</td>
-                                            <td class="text-right">
-                                                <input type="text" class="form-control text-right px-4" name="kasir" placeholder="Amad" value="<?= $this->lvalidasi->user_login()->nama ?>" style="background-color:#ffff;" readonly>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Customer</td>
-                                            <td>
-                                                <div>
-                                                    <select id="customer" class="form-control">
-                                                        <option class="text-right" value="">Umum</option>
-                                                        <?php foreach ($customer as $cust => $data) { ?>
-                                                            <option value="<?= $data->customer_id ?>"><?= $data->name ?></option>
-                                                        <?php } ?>
-                                                    </select>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                <div class="col-12 d-flex justify-content-start align-items-center">
+                                    <div class="cart-icon mr-3">
+                                        <i class="mdi mdi-cart-outline"></i>
+                                    </div>
+                                    <p class="m-0 text-black-50">Daftar Pesanan</p>
+                                </div>
+                                <div class="col-12 mt-3 table-responsive">
+                                    <table class="table table-checkout " id="table2">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Barcode</th>
+                                                <th>Barang</th>
+                                                <th>Harga</th>
+                                                <th>Qty</th>
+                                                <th>Diskon</th>
+                                                <th>Total</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="cart_table">
+                                            <?php $this->view('transaction/sale/cart_data'); ?>
+
+                                        </tbody>
                                     </table>
                                 </div>
-                                <div class="col-12 payment-1 mt-4" style="background-color: transparent;">
-                                    <table class="table-payment-1">
-                                        <tr>
-                                            <td class="text-left">Sub Total</td>
-                                            <td class="text-right">
-                                                <input type="text" class="form-control text-right px-4" id="sub_total" placeholder="Amad" value="" style="background-color:#ffff;" readonly>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-left">Diskon</td>
-                                            <td class="text-right">
-                                                <input type="number" class="form-control text-right px-4" id="discount" placeholder="0" value="" style="background-color:#ffff;">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <input style="background-color:white; " type="number" class="form-control text-center" id="grand_total" placeholder="0" value="" readonly>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of daftar pesanan -->
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="card card-noborder b-radius">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 bg-dark-blue">
+                            <table class="table-payment-1">
                                 <tr>
-                                    <div class="col-12 mt-2">
-                                        <table class="table-payment-3">
-                                            <td>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">Rp.</div>
-                                                    </div>
-                                                    <input type="text" id="cash" class="form-control number-input input-notzero bayar-input" name="bayar" placeholder="Masukkan nominal bayar">
-                                                </div>
-                                            </td>
+                                    <td class="text-left"><b>Tanggal</b></td>
+                                    <td class="text-right">
+                                        <input type="date" id="date" class="form-control text-right" name="date" placeholder="" value="<?= date('Y-m-d') ?>" style="background-color:#ffff;" readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Kasir</td>
+                                    <td class="text-right">
+                                        <input type="text" class="form-control text-right px-4" name="kasir" placeholder="Amad" value="<?= $this->lvalidasi->user_login()->nama ?>" style="background-color:#ffff;" readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Customer</td>
+                                    <td>
+                                        <div>
+                                            <select id="customer" class="form-control">
+                                                <option class="text-right" value="">Umum</option>
+                                                <?php foreach ($customer as $cust => $data) { ?>
+                                                    <option value="<?= $data->customer_id ?>"><?= $data->name ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-12 payment-1 mt-4" style="background-color: transparent;">
+                            <table class="table-payment-1">
+                                <tr>
+                                    <td class="text-left">Sub Total</td>
+                                    <td class="text-right">
+                                        <input type="text" class="form-control text-right px-4" id="sub_total" placeholder="Amad" value="" style="background-color:#ffff;" readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Diskon</td>
+                                    <td class="text-right">
+                                        <input type="number" class="form-control text-right px-4" id="discount" placeholder="0" value="" style="background-color:#ffff;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <input style="background-color:white; " type="number" class="form-control text-center" id="grand_total" placeholder="0" value="" readonly>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <table class="table-payment-3">
+                                <tr>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">Rp.</div>
+                                            </div>
+                                            <input type="text" id="cash" class="form-control number-input input-notzero bayar-input" name="bayar" placeholder="Masukkan nominal bayar">
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -186,81 +185,80 @@
                                         <button id="process_payment" class="btn btn-bayar" type="button">Bayar</button>
                                     </td>
                                 </tr>
-                                </table>
-                            </div>
+                            </table>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="card card-noborder b-radius mt-3">
-                    <div class="card-body">
-                        <table width=100%>
+            <div class="card card-noborder b-radius mt-3">
+                <div class="card-body">
+                    <table width=100%>
+                        <tr>
+                            <td style="vertical-align: top;">
+                                <label for="note">Note</label>
+                            </td>
+                            <td>
+                                <div>
+                                    <textarea id="note" rows="4" class="form-control"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- modal add product -->
+<div class="modal fade" id="modal-item-sale">
+    <div class="modal-dialog" style="max-width: 700px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tableModalLabel">Daftar Barang</h5>
+                <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-custom" id="table1">
+                        <thead>
                             <tr>
-                                <td style="vertical-align: top;">
-                                    <label for="note">Note</label>
-                                </td>
-                                <td>
-                                    <div>
-                                        <textarea id="note" rows="4" class="form-control"></textarea>
-                                    </div>
-                                </td>
+                                <th>Barcode</th>
+                                <th>Nama</th>
+                                <th>Unit</th>
+                                <th>Harga</th>
+                                <th>Stok</th>
+                                <th>Actions</th>
+
                             </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </form>
-    </div>
-
-
-    <!-- modal add product -->
-    <div class="modal fade" id="modal-item-sale">
-        <div class="modal-dialog" style="max-width: 700px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="tableModalLabel">Daftar Barang</h5>
-                    <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="table-responsive">
-                        <table class="table table-custom" id="table1">
-                            <thead>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($item as $key => $data) { ?>
                                 <tr>
-                                    <th>Barcode</th>
-                                    <th>Nama</th>
-                                    <th>Unit</th>
-                                    <th>Harga</th>
-                                    <th>Stok</th>
-                                    <th>Actions</th>
+                                    <td><?= $data->barcode ?></td>
+                                    <td><?= $data->name ?></td>
+                                    <td><?= $data->unit_name ?></td>
+                                    <td><?= indo_currency($data->price) ?></td>
+                                    <td><?= $data->stock ?></td>
+                                    <td>
+                                        <button class="btn btn-outline btn-sm" style="color:#1c45ef" id="sale_s" data-id="<?= $data->item_id ?>" data-barcode="<?= $data->barcode ?>" data-price="<?= $data->price ?>" data-stock="<?= $data->stock ?>">
 
+                                            <i class="mdi mdi-send"></i>
+                                        </button>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($item as $key => $data) { ?>
-                                    <tr>
-                                        <td><?= $data->barcode ?></td>
-                                        <td><?= $data->name ?></td>
-                                        <td><?= $data->unit_name ?></td>
-                                        <td><?= indo_currency($data->price) ?></td>
-                                        <td><?= $data->stock ?></td>
-                                        <td>
-                                            <button class="btn btn-outline btn-sm" style="color:#1c45ef" id="sale_s" data-id="<?= $data->item_id ?>" data-barcode="<?= $data->barcode ?>" data-price="<?= $data->price ?>" data-stock="<?= $data->stock ?>">
-
-                                                <i class="mdi mdi-send"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 
