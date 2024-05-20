@@ -3,7 +3,7 @@
         <div class="page-header d-flex justify-content-between align-items-center">
             <h4 class="page-title">Report Penjualan</h4>
             <div class="d-flex justify-content-start">
-               
+
             </div>
         </div>
         <div class="card card-noborder b-radius">
@@ -36,30 +36,18 @@
                                         <td><?= $data->discount ?></td>
                                         <td><?= $data->final_price ?></td>
                                         <td>
-                                            <button type="button" id="detail-report" class="btn btn-edit btn-icons btn-rounded btn-success"  data-toggle="modal" 
-                                            data-target="#modal-report" data-edit="1"
-                                            data-invoice="<?=$data->invoice?>"
-                                            data-date="<?=$data->date?>"
-                                            data-time="<?=substr($data->sale_created, 11, 5)?>"
-                                            data-customer="<?=$data->customer_id = null ? "Umum" : $data->customer_name?>"
-                                            data-total="<?=indo_currency($data->total_price)?>"
-                                            data-discount="<?=indo_currency($data->discount)?>"
-                                            data-grandtotal="<?=indo_currency($data->final_price)?>"
-                                            data-cash="<?=indo_currency($data->cash)?>"
-                                            data-remaining="<?=indo_currency($data->remaining)?>"
-                                            data-note="<?=$data->note?>"
-                                            data-saleid="<?=$data->sale_id?>">
+                                            <button type="button" id="detail-report" class="btn btn-edit btn-icons btn-rounded btn-success" data-toggle="modal" data-target="#modal-report" data-edit="1" data-invoice="<?= $data->invoice ?>" data-date="<?= $data->date ?>" data-time="<?= substr($data->sale_created, 11, 5) ?>" data-customer="<?= $data->customer_id = null ? "Umum" : $data->customer_name ?>" data-total="<?= indo_currency($data->total_price) ?>" data-discount="<?= indo_currency($data->discount) ?>" data-grandtotal="<?= indo_currency($data->final_price) ?>" data-cash="<?= indo_currency($data->cash) ?>" data-remaining="<?= indo_currency($data->remaining) ?>" data-note="<?= $data->note ?>" data-saleid="<?= $data->sale_id ?>">
                                                 <i class="mdi mdi-eye "></i>
                                             </button>
 
-                                            <a href="<?= base_url('sale/cetak/'. $data->sale_id) ?>">
+                                            <a href="<?= base_url('sale/cetak/' . $data->sale_id) ?>">
                                                 <button type="button" class="btn btn-edit btn-icons btn-rounded btn-secondary" target="_blank" data-toggle="modal" data-edit="1">
                                                     <i class="mdi mdi-note"></i>
                                                 </button>
                                             </a>
 
-                                            <a href="<?= base_url('sale/del/' . $data->sale_id) ?>">
-                                                <button type="button" class="btn btn-edit btn-icons btn-rounded btn-danger" onclick="return confirm('Apakah anda yakin?')" data-toggle="modal" data-edit="1">
+                                            <a onclick="confirmDelete('<?= base_url('sale/del/' . $data->sale_id) ?>')">
+                                                <button type="button" class="btn btn-edit btn-icons btn-rounded btn-danger" data-toggle="modal" data-edit="1">
                                                     <i class="mdi mdi-close"></i>
                                                 </button>
                                             </a>
@@ -128,10 +116,29 @@
                                 <th>Barang</th>
                                 <td colspan="3"><span id='product'></span></td>
                             </tr>
-                            </tbody>
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function confirmDelete(url) {
+        Swal.fire({
+            title: 'Apakah Anda Yakin?',
+            text: 'Data akan dihapus!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#1026de',
+            cancelButtonColor: '#E01633',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = url;
+            }
+        });
+    }
+</script>

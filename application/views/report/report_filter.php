@@ -15,7 +15,9 @@
     <div class="row pt-4">
         <div class="col card card-noborder b-radius">
             <form action="<?= base_url('report/filter') ?>" method="POST" target="_blank">
-                <div class="col p-3"><h5>Filter by Tanggal</h5></div>
+                <div class="col p-3">
+                    <h5>Filter by Tanggal</h5>
+                </div>
                 <div class="form-group row">
                     <input type="hidden" name="nilaifilter" value="1">
                     <label class="col-12 font-weight-bold col-form-label">Tanggal Awal</label>
@@ -39,8 +41,10 @@
     </div>
     <div class="row pt-4">
         <div class="col card card-noborder b-radius ">
-        <form action="<?= base_url('report/filter') ?>" method="POST" target="_blank">
-        <div class="col p-3"><h5>Filter by Bulan</h5></div>
+            <form action="<?= base_url('report/filter') ?>" method="POST" target="_blank">
+                <div class="col p-3">
+                    <h5>Filter by Bulan</h5>
+                </div>
                 <div class="form-group row">
                     <input type="hidden" name="nilaifilter" value="2">
                     <label class="col-12 font-weight-bold col-form-label">Pilih Tahun</label>
@@ -104,7 +108,9 @@
     <div class="row pt-4">
         <div class="col card card-noborder b-radius ">
             <form action="<?= base_url('report/filter') ?>" method="POST" target="_blank">
-            <div class="col p-3"><h5>Filter by Bulan</h5></div>
+                <div class="col p-3">
+                    <h5>Filter by Tahun</h5>
+                </div>
                 <div class="form-group row">
                     <input type="hidden" name="nilaifilter" value="3">
                     <label class="col-12 font-weight-bold col-form-label">Pilih Tahun</label>

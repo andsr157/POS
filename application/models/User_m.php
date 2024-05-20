@@ -1,5 +1,5 @@
-<?php defined('BASEPATH') or exit ('no direct script access allowed');
-    
+<?php defined('BASEPATH') or exit('no direct script access allowed');
+
 class User_m extends CI_Model
 {
     public function login($post)
@@ -8,23 +8,23 @@ class User_m extends CI_Model
         $this->db->from('users');
         $this->db->where('username', $post['username']);
         $this->db->where('password', sha1($post['password']));
-        $query= $this->db->get();
+        $query = $this->db->get();
         return $query;
     }
 
-    public function get($id=null)
+    public function get($id = null)
     {
         $this->db->from('users');
-        if($id != null){
+        if ($id != null) {
             $this->db->where('id', $id);
         }
-        $query= $this->db->get();
+        $query = $this->db->get();
         return $query;
     }
 
 
     public function add($post)
-    {   
+    {
         $params['nama'] = $post['nama'];
         $params['username'] = $post['username'];
         $params['password'] = sha1($post['password']);
@@ -32,7 +32,6 @@ class User_m extends CI_Model
         $params['level'] = $post['level'];
 
         $this->db->insert('users', $params);
-
     }
 
     public function del($id)
@@ -43,10 +42,10 @@ class User_m extends CI_Model
 
 
     public function edit($post)
-    {   
+    {
         $params['nama'] = $post['nama'];
         $params['username'] = $post['username'];
-        if(!empty($post['password'])){
+        if (!empty($post['password'])) {
             $params['password'] = sha1($post['password']);
         }
         $params['email'] = $post['email'];
@@ -54,6 +53,5 @@ class User_m extends CI_Model
 
         $this->db->where('id', $post['user_id']);
         $this->db->update('users', $params);
-
     }
 }

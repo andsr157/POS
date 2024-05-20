@@ -21,9 +21,7 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/dashboard/style.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/transaction/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
-
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -188,7 +186,6 @@
   <script src="<?php echo base_url() ?>assets/js/shared/off-canvas.js"></script>
   <script src="<?php echo base_url() ?>assets/js/shared/misc.js"></script>
   <script src="<?php echo base_url() ?>assets/plugins/js/jquery.form-validator.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/css/alert/sweetalert2.min.js"></script>
   <script src="<?php echo base_url() ?>assets/plugins/js/jquery-ui.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
@@ -285,10 +282,26 @@
         var qty = $('#qty').val()
         var qty_cart = $('#qty_cart').val()
         if (item_id == '') {
-          alert('product belum dipilih')
+          Swal.fire({
+            title: 'product belum dipilih!!',
+            toast: true,
+            icon: 'warning',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            position: 'top-right',
+          })
           $('#barcode').focus()
         } else if (stock < 1 || parseInt(stock) < (parseInt(qty_cart) + parseInt(qty))) {
-          alert('stock tidak mencukupi')
+          Swal.fire({
+            title: 'Stock tidak mencukupi',
+            toast: true,
+            icon: 'warning',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            position: 'top-right',
+          })
           $('#qty').focus()
         } else {
           $.ajax({
@@ -323,26 +336,37 @@
   <script>
     $(document).ready(function() {
       $(document).on('click', '#del_cart', function() {
-        if (confirm('apakah anda yakin?')) {
-          var cart_id = $(this).data('cartid')
-          $.ajax({
-            type: 'POST',
-            url: '<?= base_url('sale/cart_del') ?>',
-            dataType: 'json',
-            data: {
-              'cart_id': cart_id
-            },
-            success: function(result) {
-              if (result.success == true) {
-                $('#cart_table').load('<?= base_url('sale/cart_data') ?>', function() {
-                  calculate()
-                })
-              } else {
-                alert('Gagal Hapus item cart')
+        Swal.fire({
+          title: 'Apakah Anda Yakin?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#1026de',
+          cancelButtonColor: '#E01633',
+          confirmButtonText: 'Ya',
+          cancelButtonText: 'Batal'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            var cart_id = $(this).data('cartid')
+            $.ajax({
+              type: 'POST',
+              url: '<?= base_url('sale/cart_del') ?>',
+              dataType: 'json',
+              data: {
+                'cart_id': cart_id
+              },
+              success: function(result) {
+                if (result.success == true) {
+                  $('#cart_table').load('<?= base_url('sale/cart_data') ?>', function() {
+                    calculate()
+                  })
+                } else {
+                  alert('Gagal Hapus item cart')
+                }
               }
-            }
-          })
-        }
+            })
+          }
+
+        });
       })
     })
   </script>
@@ -409,7 +433,15 @@
           alert('Qty Minimal Satu')
           $('#qty_item').focus()
         } else if (parseInt(qty) > parseInt(stock)) {
-          alert('Stock tidak mencukupi')
+          Swal.fire({
+            title: 'Stock tidak mencukupi',
+            toast: true,
+            icon: 'warning',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            position: 'top-right',
+          })
           $('#qty_item').focus()
         } else {
           $.ajax({
@@ -484,44 +516,82 @@
       var date = $('#date').val()
 
       if (subtotal < 1) {
-        alert('Belum memilih item')
+        Swal.fire({
+          title: 'Belum memilih item',
+          toast: true,
+          icon: 'warning',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          position: 'top-right',
+        })
         $('#barcode').focus()
       } else if (cash < 1) {
-        alert('Uang cash belum di input')
+        Swal.fire({
+          title: 'Uang cash belum diinput',
+          toast: true,
+          icon: 'warning',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          position: 'top-right',
+        })
         $('#cash').focus()
       } else {
-        if (confirm('Yakin Proses Transaksi ini?')) {
-          $.ajax({
-            type: 'POST',
-            url: '<?= base_url('sale/process') ?>',
-            data: {
-              'process_payment': true,
-              'customer_id': customer_id,
-              'subtotal': subtotal,
-              'discount': discount,
-              'grandtotal': grandtotal,
-              'cash': cash,
-              'change': change,
-              'note': note,
-              'date': date
-            },
-            dataType: 'json',
-            success: function(result) {
-              if (result.success) {
-                alert('Transaksi Berhasil')
-                window.open('<?= base_url('sale/cetak/') ?>' + result.sale_id, '_blank')
-              } else {
-                alert('Transaksi Gagal')
+        Swal.fire({
+          title: 'Apakah Anda Yakin?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#1026de',
+          cancelButtonColor: '#E01633',
+          confirmButtonText: 'Ya',
+          cancelButtonText: 'Batal'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $.ajax({
+              type: 'POST',
+              url: '<?= base_url('sale/process') ?>',
+              data: {
+                'process_payment': true,
+                'customer_id': customer_id,
+                'subtotal': subtotal,
+                'discount': discount,
+                'grandtotal': grandtotal,
+                'cash': cash,
+                'change': change,
+                'note': note,
+                'date': date
+              },
+              dataType: 'json',
+              success: function(result) {
+                if (result.success) {
+                  Swal.fire({
+                    title: 'Transaksi berhasil',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 2000,
+                  })
+                  window.open('<?= base_url('sale/cetak/') ?>' + result.sale_id, '_blank')
+                } else {
+                  alert('Transaksi Gagal')
+                }
+                location.href = '<?= base_url('sale') ?>'
               }
-              location.href = '<?= base_url('sale') ?>'
-            }
-          })
-        }
+            })
+          }
+        })
       }
-
     })
     $(document).on('click', '#cancel_payment', function() {
-      if (confirm('Apakah Anda Yakin?')) {
+      Swal.fire({
+        title: 'Apakah Anda Yakin?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#1026de',
+        cancelButtonColor: '#E01633',
+        confirmButtonText: 'Ya',
+        cancelButtonText: 'Batal'
+      }).then((result) => {
         $.ajax({
           type: 'POST',
           url: '<?= base_url('sale/cart_del') ?>',
@@ -542,7 +612,9 @@
         $('#customer').val(0).change()
         $('#barcode').val()
         $('#discount').focus()
-      }
+      })
+
+
     })
   </script>
 
@@ -593,7 +665,11 @@
 
               $('#add_cart').click()
             } else {
-              alert('product tidak ditemukan')
+              Swal.fire({
+                title: 'Product tidak ditemukan',
+                icon: 'warning',
+                confirmButtonColor: '#1026de',
+              })
             }
           }
         })
@@ -646,7 +722,11 @@
     })
   })
 </script>
-
+<?= $this->session->flashdata('success delete') ?>
+<?= $this->session->flashdata('success save') ?>
+<?= $this->session->flashdata('data not found') ?>
+<?= $this->session->flashdata('data already relation') ?>
+<?= $this->session->flashdata('cant delete account') ?>
 </body>
 
 </html>

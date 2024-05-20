@@ -136,7 +136,7 @@ class Sale extends CI_Controller
     {
         $this->sale_m->del_sale($id);
         if ($this->db->affected_rows() > 0) {
-            echo "<script>alert('data penjualan berhasil dihapus')</script>";
+            $this->session->set_flashdata('success delete', "<script>Swal.fire({icon: 'success',title: 'data berhasil dihapus'})</script>");
             echo "<script>window.location='" . base_url('report/sAle') . "'</script>";
         } else {
             echo "<script>alert('data penjualan gagal dihapus);

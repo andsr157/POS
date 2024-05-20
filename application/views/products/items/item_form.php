@@ -16,14 +16,14 @@
                         <div class="col-12">
                             <input type="hidden" name="id" value="<?= $row->item_id ?>">
                             <input type="text" class="form-control" name="barcode" placeholder="Masukkan barcode" value="<?= $row->barcode ?>">
-                            <?php echo form_error('barcode', '<span class="text-danger text-xs">', '</span>'); ?>
+                            <small><?php echo form_error('barcode', '<span class="text-danger text-xs">', '</span>'); ?></small>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-12 font-weight-bold col-form-label">Nama Barang<span class="text-danger">*</span></label>
                         <div class="col-12">
                             <input type="text" class="form-control" name="name" placeholder="Masukkan Nama Barang" value="<?= $row->name ?>">
-                            <?php echo form_error('name', '<span class="text-danger">', '</span>'); ?>
+                            <small><?php echo form_error('name', '<span class="text-danger">', '</span>'); ?></small>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -35,7 +35,7 @@
                                     <option value="<?= $data->category_id ?>" <?= $data->category_id == $row->category_id ? 'selected' : null ?>><?= $data->name ?></option>
                                 <?php } ?>
                             </select>
-                            <?php echo form_error('category', '<span class="text-danger">', '</span>'); ?>
+                            <small><?php echo form_error('category', '<span class="text-danger">', '</span>'); ?></small>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -47,25 +47,22 @@
                                     <option value="<?= $data->unit_id ?>" <?= $data->unit_id == $row->unit_id ? 'selected' : null ?>><?= $data->name ?></option>
                                 <?php } ?>
                             </select>
-                            <?php echo form_error('unit', '<span class="text-danger">', '</span>'); ?>
+                            <small><?php echo form_error('unit', '<span class="text-danger">', '</span>'); ?></small>
                             <!-- <div class="input-group">
                                 <input type="number" class="form-control number-input" name="weight" placeholder="Masukkan Jumlah Satuan">
-                                <div class="input-group-append">
-                                    
+                                <div class="input-group-append">        
                                 </div>
                             </div> -->
-
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-12 font-weight-bold col-form-label">Harga<span class="text-danger">*</span></label>
                         <div class="col-12">
                             <input type="number" class="form-control" name="price" placeholder="Masukkan harga" value="<?= $row->price ?>">
-                            <?php echo form_error('price', '<span class="text-danger" style={fontsize:9px;}>', '</span>'); ?>
+                            <small><?php echo form_error('price', '<span class="text-danger" style={fontsize:9px;}>', '</span>'); ?></small>
                         </div>
                     </div>
             </div>
-
         </div>
         <div class="row mt-5">
             <div class="col-12 d-flex justify-content-end ">
@@ -77,3 +74,4 @@
 </div>
 </div>
 </div>
+<?= $this->session->flashdata('barcode already use') ?>

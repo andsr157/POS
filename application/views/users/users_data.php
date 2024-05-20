@@ -35,21 +35,18 @@
                     <td>
                       <span class="btn <?= $data->level == 1 ? 'admin-span' : 'kasir-span' ?>"><?= $data->level == 1 ? "admin" : "Kasir" ?></span>
                     </td>
-                    <form action="<?= base_url('users/del') ?>" method="POST">
-                      <td>
-                        <a href="<?= base_url('users/edit/' . $data->id) ?>">
-                          <button type="button" class="btn btn-edit btn-icons btn-rounded btn-secondary" data-toggle="modal" data-edit="1">
-                            <i class="mdi mdi-pencil"></i>
-                          </button>
-                        </a>
-                        <input type="hidden" name="user_id" value="<?= $data->id ?>">
-                        <a href="<?= base_url('users/del/' . $data->id) ?>" data-target="#del_alert">
-                          <button class="btn btn-icons btn-rounded btn-secondary ml-1 btn-delete">
-                            <i class="mdi mdi-close"></i>
-                          </button>
-                        </a>
-
-                    </form>
+                    <td>
+                      <a href="<?= base_url('users/edit/' . $data->id) ?>">
+                        <button type="button" class="btn btn-edit btn-icons btn-rounded btn-secondary" data-toggle="modal" data-edit="1">
+                          <i class="mdi mdi-pencil"></i>
+                        </button>
+                      </a>
+                      <input type="hidden" name="user_id" value="<?= $data->id ?>">
+                      <a href="#" onclick="confirmDelete('<?= base_url('users/del/' . $data->id) ?>')">
+                        <button class="btn btn-icons btn-rounded btn-secondary ml-1 btn-delete" data-toggle="modal" data-edit="1">
+                          <i class="mdi mdi-close"></i>
+                        </button>
+                      </a>
                     </td>
                   </tr>
                 <?php
@@ -62,3 +59,22 @@
     </div>
   </div>
 </div>
+
+<script>
+  function confirmDelete(url) {
+    Swal.fire({
+      title: 'Apakah Anda Yakin?',
+      text: 'Data akan dihapus!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#1026de',
+      cancelButtonColor: '#E01633',
+      confirmButtonText: 'Ya, Hapus!',
+      cancelButtonText: 'Batal'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = url;
+      }
+    });
+  }
+</script>

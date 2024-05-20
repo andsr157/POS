@@ -42,11 +42,8 @@
                                                     <i class="mdi mdi-pencil"></i>
                                                 </button>
                                             </a>
-                                            <!-- <input type="hidden" name="supplier_id" value="<?= $data->id ?>">
-                            <button onclick= "return confirm('Apakah anda yakin?')" class="btn btn-icons btn-rounded btn-secondary ml-1 btn-delete">
-                                <i class="mdi mdi-close"></i> -->
-                                            <a href="<?= base_url('supplier/del/' . $data->supplier_id) ?>">
-                                                <button type="button" class="btn btn-edit btn-icons btn-rounded btn-secondary" onclick="return confirm('Apakah anda yakin?')" data-toggle="modal" data-edit="1">
+                                            <a href="#" onclick="confirmDelete('<?= base_url('supplier/del/' . $data->supplier_id) ?>')">
+                                                <button type="button" class="btn btn-edit btn-icons btn-rounded btn-secondary" data-toggle="modal" data-edit="1">
                                                     <i class="mdi mdi-close"></i>
                                                 </button>
                                             </a>
@@ -63,3 +60,22 @@
         </div>
     </div>
 </div>
+
+<script>
+    function confirmDelete(url) {
+        Swal.fire({
+            title: 'Apakah Anda Yakin?',
+            text: 'Data akan dihapus!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#1026de',
+            cancelButtonColor: '#E01633',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = url;
+            }
+        });
+    }
+</script>
