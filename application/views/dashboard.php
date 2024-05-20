@@ -80,7 +80,7 @@
             </h1>
           </div> -->
           <div class="col-12">
-            <h5 class="font-weight-semibold chart-title">Pemasukan 1 Minggu Terakhir</h5>
+            <h5 class="font-weight-semibold chart-title">Pemasukan Terbaru</h5>
           </div>
           <div class="col-12">
             <canvas id="myChart" style="width: 100%; height: 315px;"></canvas>
@@ -96,6 +96,7 @@
   const ctx = document.getElementById('myChart');
 
   const weeklyIncomes = <?php echo json_encode($weekly_incomes); ?>;
+  console.log('week', weeklyIncomes)
 
   const chartData = {
     labels: [],
@@ -115,6 +116,7 @@
         enabled: true,
         callbacks: {
           label: function(context) {
+            console.log('context', context)
             const label = context.dataset.label || '';
             if (context.parsed.y !== null) {
               return 'Pemasukan: Rp. ' + context.parsed.y.toLocaleString();

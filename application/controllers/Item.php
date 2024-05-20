@@ -56,7 +56,6 @@ class Item extends CI_Controller
         if ($query->num_rows() > 0) {
             $item = $query->row();
             $query_category = $this->category_m->get();
-
             $query_unit = $this->unit_m->get();
 
             // $unit[null] = '-Pilih-';
@@ -69,7 +68,6 @@ class Item extends CI_Controller
                 'row' => $item,
                 'category' => $query_category,
                 'unit' => $query_unit,
-
             );
             $this->template->load('template', 'products/items/item_form', $data);
         } else {
@@ -91,22 +89,26 @@ class Item extends CI_Controller
                 $this->add();
             } else {
                 if ($this->item_m->check_barcode($post['barcode'])->num_rows() > 0) {
-                    echo "<script>alert('barcode sudah dipakai barang lain')</script>";
+                    $this->session->set_flashdata('barcode already use', "<script>Swal.fire({icon: 'warning',title: '', text: 'barcode sudah dipakai barang lain', showConfirmButton:false, timer:1500,})</script>");
                     echo "<script>window.location='" . base_url('item/add') . "'</script>";
                 } else {
                     $this->item_m->add($post);
                     if ($this->db->affected_rows() > 0) {
-                        echo "<script>alert('data berhasil disimpan')</script>";
+                        $this->session->set_flashdata('success save', "<script>Swal.fire({icon: 'success',title: 'data berhasil disimpan'})</script>");
                     }
                     echo "<script>window.location='" . base_url('item') . "'</script>";
                 }
             }
         } else if (isset($_POST['edit'])) {
             if ($this->item_m->check_barcode($post['barcode'], $post['id'])->num_rows() > 0) {
-                echo "<script>alert('barcode sudah dipakai barang lain')</script>";
+                $this->session->set_flashdata('barcode already use', "<script>Swal.fire({icon: 'warning',title: '', text: 'barcode sudah dipakai barang lain', showConfirmButton:false, timer:1500,})</script>");
                 echo "<script>window.location='" . base_url('item/edit/' . $post['id']) . "'</script>";
             } else {
                 $this->item_m->edit($post);
+                if ($this->db->affected_rows() > 0) {
+                    $this->session->set_flashdata('success save', "<script>Swal.fire({icon: 'success',title: 'data berhasil disimpan'})</script>");
+                }
+                echo "<script>window.location='" . base_url('item') . "'</script>";
             }
         }
     }
@@ -116,7 +118,7 @@ class Item extends CI_Controller
     {
         $this->item_m->del($id);
         if ($this->db->affected_rows() > 0) {
-            echo "<script>alert('data berhasil dihapus')</script>";
+            $this->session->set_flashdata('success delete', "<script>Swal.fire({icon: 'success',title: 'berhasil hapus'})</script>");
         }
         echo "<script>window.location='" . base_url('item') . "'</script>";
     }

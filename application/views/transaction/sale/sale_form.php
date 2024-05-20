@@ -246,7 +246,6 @@
                                     <td><?= $data->stock ?></td>
                                     <td>
                                         <button class="btn btn-outline btn-sm" style="color:#1c45ef" id="sale_s" data-id="<?= $data->item_id ?>" data-barcode="<?= $data->barcode ?>" data-price="<?= $data->price ?>" data-stock="<?= $data->stock ?>">
-
                                             <i class="mdi mdi-send"></i>
                                         </button>
                                     </td>

@@ -35,9 +35,6 @@ class Test extends CI_Controller
 
     public function test_user_logged_in_and_not_logged_in_sessions()
     {
-        // Test Case 16: Sesi Pengguna yang Login dan Tidak Login
-
-        // Scenario 1: User is not logged in
         $this->session->unset_userdata('user_id');
         $is_user_logged_in = $this->session->userdata('user_id');
         $expected_result_1 = false;
@@ -55,3 +52,4 @@ class Test extends CI_Controller
         echo $this->unit->run($is_user_logged_in_after_login, $expected_result_2, $test_name_2);
     }
 }
+  
