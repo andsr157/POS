@@ -7,8 +7,7 @@ services:
       - "traefik.http.routers.app2.rule=Host(`pos.dancok.fun`)"
       - "traefik.http.routers.app2.entrypoints=websecure"
       - "traefik.http.routers.app2.tls.certresolver=myresolver"
-    volumes:
-      - .:/var/www/html
+    volumes: []
     environment:
       - DB_HOST=${DB_HOST}
       - DB_USER=${DB_USER}
