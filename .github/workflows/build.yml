@@ -69,14 +69,11 @@ jobs:
 
       - name: Deploy Traefik
         run: |
-          export DB_POSTGRES_PW="${{ secrets.GI_POSTGRES_PW }}"
-          export DB_POSTGRES_PORT="${{ secrets.GI_POSTGRES_PORT }}"
-          export DB_MYSQL_PW="${{ secrets.GI_MYSQL_PW }}"
-          export DB_MYSQL_PORT="${{ secrets.GI_MYSQL_PORT }}"
-          export DB_PGBOUNCER_PORT="${{ secrets.GI_PGBOUNCER_PORT }}"
-          export PG_BOUNCER_INI="${{secrets.GI_BOUNCER_INI}}"
-          export PG_BOUNCER_USERS="${{ secrets.GI_PGBOUNCER_USERS }}"
-          export PG_BOUNCER_PWS="${{ secrets.GI_PGBOUNCER_PWS }}"
+          export DB_HOST="${{ secrets.GI_DB_HOST }}"
+          export DB_USER="${{ secrets.GI_DB_USER }}"
+          export DB_PASS="${{ secrets.GI_DB_PASSWORD }}"
+          export DB_NAME="${{ secrets.GI_DB_NAME }}"
+         
         
           echo "${{ secrets.GI_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
@@ -89,4 +86,3 @@ jobs:
         run: |
           docker context rm remote -f || true
           rm -f ~/.ssh/ssh_new.pem
-          rm -f pgbouncer-custom/pgbouncer.ini pgbouncer-custom/userlist.txt
