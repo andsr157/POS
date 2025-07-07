@@ -13,6 +13,7 @@ services:
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
       - DB_NAME=${DB_NAME}
+      - APP_BASE_URL=${APP_BASE_URL}
       - APACHE_DOCUMENT_ROOT=/var/www/html
     restart: always
     networks:

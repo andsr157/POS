@@ -73,6 +73,7 @@ jobs:
           export DB_USER="${{ secrets.GI_DB_USER }}"
           export DB_PASS="${{ secrets.GI_DB_PASSWORD }}"
           export DB_NAME="${{ secrets.GI_DB_NAME }}"
+          export APP_BASE_URL="${{ secrets.GI_APP_BASE_URL }}"
          
         
           echo "${{ secrets.GI_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
