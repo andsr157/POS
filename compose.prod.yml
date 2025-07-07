@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  app2:
+    container_name: app-pos
+    build: ghcr.io/andsr157/pos-app:prod
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.app2.rule=Host(`pos.dancok.fun`)"
+      - "traefik.http.routers.app2.entrypoints=websecure"
+      - "traefik.http.routers.app2.tls.certresolver=myresolver"
+    volumes:
+      - .:/var/www/html
+      # Exclude vendor directory from being overwritten
+      - /var/www/html/vendor
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+    restart: always
+    networks:
+      - traefik_web
+
+networks:
+  traefik_web:
+    external: true

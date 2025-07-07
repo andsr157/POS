@@ -1,3 +1,4 @@
+.env
 .DS_Store
 
 application/cache/*
@@ -30,3 +31,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+/vendor/

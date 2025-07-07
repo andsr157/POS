@@ -1,0 +1,9 @@
+.git/
+vendor/
+node_modules/
+storage/logs
+.env
+*.md
+*.zip
+*.log
+docker-compose.override.yml
