@@ -67,7 +67,7 @@ jobs:
           docker context create remote --docker "host=ssh://${{ secrets.GI_DOCKER_HOST }}" 
           docker context use remote
 
-      - name: Deploy Traefik
+      - name: Deploy App
         run: |
           export DB_HOST="${{ secrets.GI_DB_HOST }}"
           export DB_USER="${{ secrets.GI_DB_USER }}"
