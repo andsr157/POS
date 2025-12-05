@@ -1,22 +1,15 @@
-# --- STAGE 1: Build Composer Dependencies ---
-FROM composer:2 AS composer_build
-WORKDIR /app
-
-# Copy only composer files to leverage cache
-COPY composer.json ./
-COPY composer.lock* ./
-
-# Install dependencies without dev packages (ignore PHP version conflicts)
-RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts --ignore-platform-reqs
-
-# --- STAGE 2: Main Application ---
+# --- Single Stage Build ---
 FROM php:7.4-apache
 
 # Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
-    libzip-dev zip unzip git \
+    libzip-dev zip unzip git curl \
     && docker-php-ext-install zip mysqli pdo pdo_mysql \
-    && a2enmod rewrite
+    && a2enmod rewrite \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Copy Apache config if customized
 COPY 000-default.conf /etc/apache2/sites-available/
@@ -28,16 +21,19 @@ WORKDIR /var/www/html
 # Copy PHP configuration
 COPY php.ini /usr/local/etc/php/conf.d/custom.ini
 
+# Copy composer files first (for layer caching)
+COPY composer.json composer.lock* ./
+
+# Install dependencies
+RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
+
 # Copy application source code
 COPY . .
-
-# Copy vendor folder from build stage
-COPY --from=composer_build /app/vendor ./vendor
 
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html \
     && find /var/www/html -type d -exec chmod 755 {} \; \
     && find /var/www/html -type f -exec chmod 644 {} \;
 
-# Expose port 80 explicitly (optional)
+# Expose port 80
 EXPOSE 80
