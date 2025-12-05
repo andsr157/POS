@@ -6,8 +6,8 @@ WORKDIR /app
 COPY composer.json ./
 COPY composer.lock* ./
 
-# Install dependencies without dev packages
-RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
+# Install dependencies without dev packages (ignore PHP version conflicts)
+RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts --ignore-platform-reqs
 
 # --- STAGE 2: Main Application ---
 FROM php:7.4-apache
