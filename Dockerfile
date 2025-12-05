@@ -35,5 +35,9 @@ RUN chown -R www-data:www-data /var/www/html \
     && find /var/www/html -type d -exec chmod 755 {} \; \
     && find /var/www/html -type f -exec chmod 644 {} \;
 
-# Expose port 80
-EXPOSE 80
+# Change Apache to listen on port 8080 (for Zeabur compatibility)
+RUN sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf \
+    && sed -i 's/:80/:8080/' /etc/apache2/sites-available/*.conf
+
+# Expose port 8080
+EXPOSE 8080
