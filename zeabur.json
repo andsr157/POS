@@ -1,0 +1,7 @@
+{
+  "$schema": "https://schema.zeabur.app/template.json",
+  "build": {
+    "type": "prebuilt",
+    "image": "ghcr.io/andsr157/pos-app:prod"
+  }
+}
